@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<lom:lom xmlns="https://ocw.mit.edu/xmlns/LOM"
+         xmlns:lom="https://ocw.mit.edu/xmlns/LOM"
+         xmlns:ocwlom="https://ocw.mit.edu/xmlns/ocwLOM"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://ocw.mit.edu/xmlns/LOM https://ocw.mit.edu/xsd/LOM/lomv1.0/lomv1.0.xsd https://ocw.mit.edu/xmlns/ocwLOM https://ocw.mit.edu/xsd/ocwLOM/ocwlomv1.0/ocwlomv1.0.xsd">
+  <!--************************************************************ 
+  This LOM record was produced by an automatic transformation to IEEE LOM, from OpenCourseWare's (OCW) initial version of Learning Object Metadata (LOM). (The initial version was based on IMS Global Consortium's LOM.)
+			********************************************************-->
+<!--***************************-->
+<!--**** GENERAL ****-->
+<!--***************************-->
+    <lom:general uniqueElementName="general">
+        <lom:title uniqueElementName="title">
+            <lom:string language="en">Computer-generated image of colorful, twisted bands</lom:string>
+        </lom:title>
+        <lom:description>
+            <lom:string language="en">Folding of deca-alanine molecule simulated at various temperatures in parallel. (Image courtesy Zachary Ulissi.)</lom:string>
+        </lom:description>
+        <lom:language>en</lom:language>
+        <lom:aggregationLevel uniqueElementName="aggregationLevel">
+            <lom:source uniqueElementName="source">LOMv1.0</lom:source>
+            <lom:value uniqueElementName="value">2</lom:value>
+        </lom:aggregationLevel>
+    </lom:general>
+<!--***************************-->
+<!--**** LIFECYCLE ****-->
+<!--***************************-->
+    <lom:lifeCycle uniqueElementName="lifeCycle">
+        <lom:version uniqueElementName="version">
+            <lom:string language="en">Fall 2011</lom:string>
+        </lom:version>
+        <lom:contribute>
+            <lom:role>
+                <lom:source uniqueElementName="source">OCW_LOMv1.0</lom:source>
+                <lom:value uniqueElementName="value">Author</lom:value>
+            </lom:role>
+            <lom:entity>Edelman, Alan</lom:entity>
+            <lom:date uniqueElementName="date">
+                <lom:dateTime uniqueElementName="dateTime">2020-1-1</lom:dateTime>
+            </lom:date>
+        </lom:contribute>
+        
+    </lom:lifeCycle>
+<!--***************************-->
+<!--**** TECHNICAL ****-->
+<!--***************************-->
+    <lom:technical uniqueElementName="technical">
+        <lom:location>/courses/mathematics/18-337j-parallel-computing-fall-2011/18-337jf11.jpg</lom:location>
+        <lom:format>image/jpeg</lom:format>
+        <lom:otherPlatformRequirements>
+			<lom:string language="en"></lom:string>
+		</lom:otherPlatformRequirements>
+		<lom:size>39427</lom:size>
+        <lom:requirement>
+            <lom:orComposite>
+                <lom:type uniqueElementName="type">
+                    <lom:source uniqueElementName="source">LOMv1.0</lom:source>
+                    <lom:value uniqueElementName="value">Browser</lom:value>
+                </lom:type>
+                <lom:name uniqueElementName="name">
+                    <lom:source uniqueElementName="source">LOMv1.0</lom:source>
+                    <lom:value uniqueElementName="value">Chrome</lom:value>
+                </lom:name>
+                <lom:minimumVersion
+    uniqueElementName="minimumVersion">40.0</lom:minimumVersion>
+            </lom:orComposite>
+            <lom:orComposite>
+                <lom:type uniqueElementName="type">
+                    <lom:source uniqueElementName="source">LOMv1.0</lom:source>
+                    <lom:value uniqueElementName="value">Browser</lom:value>
+                </lom:type>
+                <lom:name uniqueElementName="name">
+                    <lom:source uniqueElementName="source">LOMv1.0</lom:source>
+                    <lom:value uniqueElementName="value">Safari</lom:value>
+                </lom:name>
+                <lom:minimumVersion
+    uniqueElementName="minimumVersion">8.0</lom:minimumVersion>
+            </lom:orComposite>
+            <lom:orComposite>
+                <lom:type uniqueElementName="type">
+                    <lom:source uniqueElementName="source">LOMv1.0</lom:source>
+                    <lom:value uniqueElementName="value">Browser</lom:value>
+                </lom:type>
+                <lom:name uniqueElementName="name">
+                    <lom:source uniqueElementName="source">LOMv1.0</lom:source>
+                    <lom:value uniqueElementName="value">Mozilla Firefox</lom:value>
+                </lom:name>
+                <lom:minimumVersion
+    uniqueElementName="minimumVersion">38.0</lom:minimumVersion>
+            </lom:orComposite>
+            <lom:orComposite>
+                <lom:type uniqueElementName="type">
+                    <lom:source uniqueElementName="source">LOMv1.0</lom:source>
+                    <lom:value uniqueElementName="value">Browser</lom:value>
+                </lom:type>
+                <lom:name uniqueElementName="name">
+                    <lom:source uniqueElementName="source">LOMv1.0</lom:source>
+                    <lom:value uniqueElementName="value">Internet Explorer</lom:value>
+                </lom:name>
+                <lom:minimumVersion
+    uniqueElementName="minimumVersion">9.0</lom:minimumVersion>
+            </lom:orComposite>
+            <lom:orComposite>
+                <lom:type uniqueElementName="type">
+                    <lom:source uniqueElementName="source">LOMv1.0</lom:source>
+                    <lom:value uniqueElementName="value">Browser</lom:value>
+                </lom:type>
+                <lom:name uniqueElementName="name">
+                    <lom:source uniqueElementName="source">LOMv1.0</lom:source>
+                    <lom:value uniqueElementName="value">Edge</lom:value>
+                </lom:name>
+                <lom:minimumVersion
+    uniqueElementName="minimumVersion">13.1</lom:minimumVersion>
+            </lom:orComposite>
+        </lom:requirement>
+    </lom:technical>
+<!--***************************-->
+<!--**** EDUCATIONAL ****-->
+<!--***************************-->
+    <lom:educational>
+    	<lom:learningResourceType>
+			<lom:source uniqueElementName="source">LOMv1.0</lom:source>
+			<lom:value uniqueElementName="value">Audio/Visual | Image/Image Set</lom:value>
+		</lom:learningResourceType>
+        <lom:context>
+            <lom:source uniqueElementName="source">OCW_LOMv1.0</lom:source>
+            <lom:value uniqueElementName="value">Graduate</lom:value>
+        </lom:context>
+        <lom:description>
+			<lom:string language="en"></lom:string>
+		</lom:description>
+    </lom:educational>
+<!--***************************-->
+<!--**** RIGHTS ****-->
+<!--***************************-->
+    <lom:rights uniqueElementName="rights">
+        <lom:copyrightAndOtherRestrictions uniqueElementName="copyrightAndOtherRestrictions">
+            <lom:source uniqueElementName="source">LOMv1.0</lom:source>
+            <lom:value uniqueElementName="value">yes</lom:value>
+        </lom:copyrightAndOtherRestrictions>
+        <lom:description>
+            <lom:string language="en">This site (c) Massachusetts Institute of Technology 2019.  Content within individual courses is (c) by the individual authors unless otherwise noted. The Massachusetts Institute of Technology is providing this Work (as defined below) under the terms of this Creative Commons public license ("CCPL" or "license") unless otherwise noted. The Work is protected by copyright and/or other applicable law. Any use of the work other than as authorized under this license is prohibited. By exercising any of the rights to the Work provided here, You (as defined below) accept and agree to be bound by the terms of this license. The Licensor, the Massachusetts Institute of Technology, grants You the rights contained here in consideration of Your acceptance of such terms and conditions.</lom:string>
+        </lom:description>
+    </lom:rights>
+<!--***************************-->
+<!--**** RELATION ****-->
+<!--***************************-->
+    <lom:relation>
+        <lom:kind uniqueElementName="kind">
+            <lom:source uniqueElementName="source">LOMv1.0</lom:source>
+            <lom:value uniqueElementName="value">ispartof</lom:value>
+        </lom:kind>
+        <lom:resource uniqueElementName="resource">
+            <lom:identifier>
+                <lom:catalog uniqueElementName="catalog">OCW Master Course Number</lom:catalog>
+                <lom:entry uniqueElementName="entry">18.337J Parallel Computing Fall 2011</lom:entry>
+            </lom:identifier>
+            <lom:description>
+                <lom:string language="en">This is an advanced interdisciplinary introduction to applied parallel computing on modern supercomputers. It has a hands-on emphasis on understanding the realities and myths of what is possible on the world's fastest machines. We will make prominent use of the Julia Language, a free, open-source, high-performance dynamic programming language for technical computing.</lom:string>
+            </lom:description>
+        </lom:resource>
+    </lom:relation>
+<!--***************************-->
+<!--**** CLASSIFICATION ****-->
+<!--***************************-->
+    <lom:classification>
+        <lom:taxonPath>
+            <lom:source uniqueElementName="source">
+                <lom:string language="en">CIP</lom:string>
+            </lom:source>
+            <lom:taxon>
+                <lom:id uniqueElementName="id">270102</lom:id>
+                <lom:entry uniqueElementName="entry">
+                    <lom:string language="en"></lom:string>
+                </lom:entry>
+            </lom:taxon>
+        </lom:taxonPath>
+        <lom:keyword>
+            <lom:string language="en">cloud computing</lom:string>
+        </lom:keyword>
+        <lom:keyword>
+            <lom:string language="en">dense linear algebra</lom:string>
+        </lom:keyword>
+        <lom:keyword>
+            <lom:string language="en">sparse linear algebra</lom:string>
+        </lom:keyword>
+        <lom:keyword>
+            <lom:string language="en">N-body problems</lom:string>
+        </lom:keyword>
+        <lom:keyword>
+            <lom:string language="en">multigrid</lom:string>
+        </lom:keyword>
+        <lom:keyword>
+            <lom:string language="en">fast-multipole</lom:string>
+        </lom:keyword>
+        <lom:keyword>
+            <lom:string language="en">wavelets</lom:string>
+        </lom:keyword>
+        <lom:keyword>
+            <lom:string language="en">Fourier transforms</lom:string>
+        </lom:keyword>
+        <lom:keyword>
+            <lom:string language="en">partitioning</lom:string>
+        </lom:keyword>
+        <lom:keyword>
+            <lom:string language="en">mesh generation</lom:string>
+        </lom:keyword>
+        <lom:keyword>
+            <lom:string language="en">applications oriented architecture</lom:string>
+        </lom:keyword>
+        <lom:keyword>
+            <lom:string language="en">parallel programming paradigms</lom:string>
+        </lom:keyword>
+        <lom:keyword>
+            <lom:string language="en">MPI</lom:string>
+        </lom:keyword>
+        <lom:keyword>
+            <lom:string language="en">data parallel systems</lom:string>
+        </lom:keyword>
+        <lom:keyword>
+            <lom:string language="en">Star-P</lom:string>
+        </lom:keyword>
+        <lom:keyword>
+            <lom:string language="en">parallel Python</lom:string>
+        </lom:keyword>
+        <lom:keyword>
+            <lom:string language="en">parallel Matlab</lom:string>
+        </lom:keyword>
+        <lom:keyword>
+            <lom:string language="en">graphics processors</lom:string>
+        </lom:keyword>
+        <lom:keyword>
+            <lom:string language="en">virtualization</lom:string>
+        </lom:keyword>
+        <lom:keyword>
+            <lom:string language="en">caches</lom:string>
+        </lom:keyword>
+        <lom:keyword>
+            <lom:string language="en">vector processors</lom:string>
+        </lom:keyword>
+        <lom:keyword>
+            <lom:string language="en">VHLLs</lom:string>
+        </lom:keyword>
+        <lom:keyword>
+            <lom:string language="en">Very High Level Languages</lom:string>
+        </lom:keyword>
+        <lom:keyword>
+            <lom:string language="en">Julia programming language</lom:string>
+        </lom:keyword>
+        <lom:keyword>
+            <lom:string language="en">distributed parallel execution</lom:string>
+        </lom:keyword>
+    </lom:classification>
+</lom:lom>
