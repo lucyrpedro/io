@@ -1,0 +1,630 @@
+The language compiled by phc
+****************************
+
+The original code for phc was the hbcc compiler, an abortive
+Haskell-in-Haskell compiler written by Lennart Augustsson between 1993
+and 1995 (or thereabouts).  It therefore compiles the Haskell language
+as it existed back then (Haskell 1.3ish).  There are various
+forward-looking additions to the compiler, and there have been
+syntactic tweaks over the years.  This document outlines what to
+expect.  
+
+****************
+Missing syntax
+****************
+
+There are two important pieces of missing syntax: Qualified names (and
+qualified imports), and records with named fields.  Import lines look
+something like these:
+
+  import List hiding (nub, nubBy)
+
+  import List(sort, group)
+
+Export lines use the old export syntax.  In particular, you can't
+refer to e.g. "module List" in your export line.
+
+If you use qualified imports due to lots of overlapping names, you may
+be out of luck porting your programs to Eager Haskell for the moment.
+
+Named records are easier to work around, but may still require you to
+rewrite a lot of your pattern matching code if you use record matching
+extensively.  The Haskell 98 report gives a mapping.
+
+****************
+Mangled syntax
+****************
+
+* Pragmas
+
+Eager Haskell has a number of pragmas, most of them for interface
+files.  The two useful pragmas in user code are INLINE and NOINLINE.
+The former tells the compiler that inlining particular functions is a
+good idea.  The latter tells the compiler that it's probably a
+terrible idea.
+
+* newtype and strict fields: a caveat.
+
+The newtype construct exists and acts as expected.  Alas, the
+following two declarations do exactly the same thing:
+
+data Foo = Foo !Int
+
+newtype Foo = Foo Int
+
+So data types with a single constructor, whose constructor has a
+single strict field, also behave like newtypes.  Most of the time this
+won't make any apparent difference, but there are subtle semantic
+differences having to do with when the Int is required to be defined:
+
+  checkfoo (Foo _) = True
+
+checkfoo (Foo undefined) should be "undefined" for the strict-field
+type and "True" for the newtype (right?).  It will always be True in
+Eager Haskell.
+
+* existential types
+
+Our compiler has an early and experimental implementation of
+existential types.  Unlike more recent versions, the quantification of
+type variables is *NOT* made explicit.  Thus:
+
+data AFoo = ABar a (a -> Int) (a -> Bool)
+
+defines an existential type constructor ABar:
+
+ABar :: a -> (a -> Int) -> (a -> Bool) -> AFoo
+
+* explicit constructor types
+
+An explicit type can be given to a constructor, something like this:
+
+data Array b e = Array  b b (Vector e) :: Array b e
+               | Array2 b1 b2 b1 b2 (Vector e) :: Array (b1,b2) e
+
+This was an experiment ages ago and may let you do terrible things.
+You're on your own if you play with this.
+
+* multiparameter type classes
+
+Based on the early gofer implementation of the same idea.  There are
+no functional dependencies, and things may thus sometimes fail to type
+for reasons which are not immediately apparent.  IMPORTANT: without
+functional dependencies, every method type must mention all the types in the
+class declaration.
+
+class Indexable c e where
+  (!) :: (Ix a) => c a -> e
+
+* pH loop syntax
+
+There is a flag -floop-syntax to allow pH-style "for" and "while"
+loops (which are sugar for tail recursion).  See "Implicit Parallel
+Programming in pH" by R.S. Nikhil and Arvind (Morgan-Kaufman, 2001) if
+you want to learn more.
+
+* pH barrier syntax
+
+There is also a flag -fpar-seq which permits pH-style binding syntax.
+This allows the use of bare expessions in lieu of bindings (useless in
+the absence of side effects), allows bindings to be grouped using
+parentheses (which introduces a new indentation context), and permits
+the use of barriers (>>>), which strongly sequence execution.  See
+"Implicit Parallel Programming in pH" by R.S. Nikhil and Arvind
+(Morgan-Kaufman, 2001) if you want to learn more about barriers.  The
+use of -fpar-seq disables many code motion optimizations which would
+be unsafe in the presence of barriers or side effecting computations.
+
+Here's an example and its parse, to give you an idea of what's going
+on:
+
+g x =
+  let ( b = a + 2
+	>>>
+        a * b + b
+	>>>
+	(   a + b *
+	    c + d)
+	(   a + b     -- AMBIGUOUS.  Parsed as two expressions.
+	    c + d )
+	(   a + b
+	  * c + d )
+	(   a + b 
+	  ) * (c + d)
+	c = b - a
+	>>>
+	(   d = c * b
+	    e = c `quot` b)
+      )
+      a = x + 5
+  in d * e
+
+g x =
+  let { ( b = a + 2 
+          >>>
+	  a * b + b
+	  >>>
+          ( (a + b * c + d);
+	    ( a + b;
+              c + d );
+            (a + b * c + d);
+            (a + b) * (c + d);
+	    c = b - a
+	  )
+	  >>>
+          ( d = c * b;
+            e = c `quot` b)
+	);
+        a = x + 5 
+  } in  d * e
+
+A few things to notice.  First, ";" and indentation bind more tightly
+than ">>>".  This means that a binding like this:
+  let a
+      b
+      >>>
+      c
+is parsed as (a;b)>>>c which may not be what you want.  Use
+parentheses to disambiguate.  In the above example, the barrier region
+is enclosed in parentheses and indented to set it apart from the
+binding for "a".  The tight binding of ";" allows us to write
+function definitions in a natural manner in barrier regions:
+  a = e
+  >>>
+  f 0 = a
+  f n = f (n - 1) + a
+  u = f 17
+
+Notice that the mixture of expressions-as-bindings and
+parentheses-group-bindings can lead to confusion.  The compiler
+resolves this ambiguity as follows:
+- (expr) is parsed as an expr, not a binding in parentheses which
+  happens to be an expression.  This should not make a difference in
+  practice, but is noted in case you're hunting an ambiguity.
+- the parenthesized region marked "AMBIGUOUS" above is parsed as two
+  standalone expression bindings (a + b ; c + d) rather than as a single
+  badly-indented expression (a + (b c) + d)
+These two rules together allow the compiler to handle the various
+screw cases shown above with a modicum of grace.
+
+* unboxed types
+
+There's support in there, sorta, but it doesn't do anything
+meaningful.  All occurrences of supposedly "unboxed" values in the
+Prelude code are a massive sham, as numerous declarations of the
+following form make clear:
+
+> type Int# = Int
+
+Don't muck with unboxed types unless you know precisely what you're
+doing.  
+
+****************
+Prelude
+****************
+
+Prelude functions you really want to avoid in an eager language:
+
+enumFrom  [n..]
+enumFromThen [n,m..]
+iterate
+
+The prelude should match the one for Haskell 98, with a few additions:
+
+> reduce :: (a -> a -> a) -> a -> [a] -> a
+
+This is like "foldl" and "foldr", except the function must be
+associative and the provided value must be an identity of the
+function.  It allows the deforestation pass of the compiler to
+generate somewhat more efficient and/or more parallel code for
+reductions.  
+
+> reduce1 :: (a -> a -> a) -> [a] -> a
+
+A *reduce* without an identity.
+
+> someOrder :: [a] -> [a]
+
+Declares that the order of elements in a list does not matter.  This
+is most likely because it is being reduced with a commutative
+function, or because it is being converted into a set, a bag, an
+array, or the like.
+
+> iteraten :: Int -> (a -> a) -> a -> [a]
+
+iterate n f i = take n (iterate f i)
+
+Only it actually behaves in a halfway reasonable fashion.
+
+> strictList :: [a] -> [a]
+
+Makes sure all elements of the list are in WHNF before returning.
+
+> unfold :: (a -> Bool) -> (a -> (b,a)) -> a -> [b]
+
+Construct a list such that it can be deforested.  Otherwise would be
+defined like so:
+
+unfold p g a 
+  | p a = []
+  | otherwise = e : unfold p g b
+    where (e, b)
+
+There is an additional method in class Eq: _fastEqIsSafe.  This
+returns True when pointer equality implies object equality.  By
+default it is False.  It must never actually examine its argument,
+though definitions typically use lazy pattern matching.  Right now
+only prelude types define _fastEqIsSafe; there are peculiar corner
+conditions for mutually-recursive types which make deriving a
+definition within the compiler rather tricky.  In practice, any data
+type which doesn't perversely make (x==x) False can define
+_fastEqIsSafe _ = True and start the definition for equality with:
+  x == y | _fastEq x y = True
+
+The IO type is defined in terms of an ST type (which is almost but not
+quite the usual ST type, as there's no universal quantification over
+the state).  This isn't Haskell-98 compliant, but will mostly work
+unless you're importing GHC-specific libraries or define a "ST" monad
+which just carries state around.
+
+Note that prelude names starting with _underscore are used internally
+by the compiler.  If they're not exported by PreludeCore bad things
+may happen.
+
+If there are other differences between preludes, they're probably
+bugs.  Let us know.
+
+****************
+Standard Libraries
+****************
+
+* Unchanged libraries (we hope):
+
+Char
+Complex
+Ratio
+
+* List
+
+> numberListFrom :: Int -> [a] -> [(Int, a)]
+> genericNumberListFrom :: (Enum i) => i -> [a] -> [(i,a)]
+
+numberListFrom n xs = zip [n..] xs
+
+Except the performance will be halfway reasonable.  Better, in fact,
+than the (roughly sort of) equivalent:
+
+zip [n..length xs] xs
+
+numberListFrom still actually works on infinite lists, too, whereas
+the above does not.
+
+> mergeBy :: (a -> a -> Ordering) -> [a] -> [a] -> [a]
+
+merge two lists which are presumed to be sorted in ascending order,
+yielding a list in ascending order.  This is reimplemented in half the
+Haskell programs I have ever examined, thus its presence in List.
+Alas, for the same reason there is no "merge" function as it would
+conflict with all of those definitions.
+
+* Numeric
+
+Is probably really flaky.  It will get attention when we have time and
+need.  Sorry.
+
+* Ix
+
+_rangeSizeUnchecked is provided as an additional class method.  It
+does not check that the lower bound lies below the upper bound.  It's
+used for efficient array operations when inRange is known.
+
+We don't assume any of the following from the report:
+
+   range (l,u) !! index (l,u) i == i   -- when i is in range
+   inRange (l,u) i == i `elem` range (l,u)
+   map index (range (l,u))      == [0..rangeSize (l,u)]
+
+Instead, we require that:
+   0 <= index (l,u) i < rangeSize (l,u)  when inRange (l,u) i
+
+And in the absence of any explicit definition to the contrary:
+   index (l,u) u == rangeSize (l,u) - 1
+
+This allows the programmer to experiment with Ix instances which
+implement blocking and various other non-linear array traversals.
+
+* Array
+
+The arrays in Eager Haskell are *much* more flexible and richly
+defined than the ones in ordinary Haskell.  In an array comprehension
+(call to "array", "listArray", or "(//)"), we process the arguments IN
+ANY ORDER, and any index may depend on the value of another array
+element as long as no cyclic dependencies exist.  Even if cycles do
+exist, elements outside the cycle are properly defined.
+
+Contrast this with Haskell, where all the indices in a comprehension are
+evaluated before the result becomes available.
+
+The Show method of Array prints only the elements of the array which
+are defined by (index,value) pairs when the array was created.  For
+example:
+
+show (array (0,9) [(1,1), (2,3)]) 
+  "array (0,9) [(1,1),(2,3)]"
+
+show (array (0,9) [(1,1), (2,undefined)])
+  "array (0,9) [(1,1),(2,
+  Error: undefined value accessed.
+
++ The Imperative class
+
+Elements of arrays must be members of the Imperative class.  Every
+data type automatically derives Imperative, so this isn't a challenge
+in practice.  It limits the use of polymorphism with mutable arrays.
+The presence of "Imperative" annotations in the Array library is
+mostly a side effect of the use of imperative arrays to implement
+purely-functional arrays.
+
+* IO
+
+Lots of functionality is not implemented or is poorly implemented.
+Don't expect most of the is...Error functions to work, for example.
+We detect *that* errors occur most of the time, but we don't do much
+to figure out *which* errors have occurred.
+
+* System
+
+Surprisingly, System *is* fully implemented.  It also defines:
+
+> ProgramArgs :: [String]
+
+Which is a top-level constant equal to the arguments passed to the
+program when it was started.
+
+* Other libraries
+
+Not implemented yet.  
+
+****************
+Non-standard libraries
+****************
+
+* ArrayCore
+
+Access to the guts of arrays, most interestingly:
+
+> dassocs :: (Ix a) => Array a b -> [(a, b)]
+
+Returns the defined elements of the array after the comprehension
+constructing the array has been fully consumed.  Used to define the
+Show instance for Array.
+
+* Effect
+
+Very low-level routines for control over execution.
+
+> ctWHNF :: a -> Bool
+
+True if its argument is WHNF at compile time.  Otherwise False.
+Not necessarily accurate; will sometimes be "False" when it could have
+been "True".  Will reliably be eliminated at compile time (or the
+resulting code won't link!).
+
+> thunk :: (a -> b) -> a -> b
+
+Lazy function application.  Lots of caveats to this one, chief among
+them being that you should apply thunk to exactly as many arguments as
+you intend to suspend, and should then not immediately use the result
+in a strict context.  Useful if you know what you're doing, but the
+compiler isn't quite robust enough yet for those circumstances to be
+easy to explain.  Should not in any case be actively dangerous, it
+just may make program performance worse rather than better if used poorly.
+
+> (&&&) :: Bool -> Bool -> Bool
+
+Parallel "and".  If either operand is "False", will return "False"
+without *necessarily* fully evaluating the other one.  Thus:
+
+undefined &&& False     => False
+False     &&& undefined => False
+undefined &&& undefined => undefined
+False     &&& (unsafePerformIO ...) => who knows?
+
+> (|||) :: Bool -> Bool -> Bool
+
+Parallel "or".  See parallel "and".
+
+> firstExp :: a -> a -> a
+
+Returns whichever of its arguments is first noticed to be in WHNF.
+This *might* still cause execution of the other argument.
+
+> lastExp :: a -> a -> a
+
+Returns whichever of its arguments is *last* noticed to be in WHNF.
+This can be used a bit like "seq" in some code.  However, it always
+discards the first argument to reach WHNF, and can thus have better
+space performance than "seq" in some cases.
+
+> firstLast :: a -> a -> (a,a)
+> firstLast a b = (firstExp a b, lastExp a b)
+
+> compOrder :: [a] -> [a]
+
+Return the list in computation order.  Possibly very handy for the
+parallel search nuts.  I don't know, give it a try.  It's a tricky
+routine to write in any case, so we provide a canned version.
+
+The canned version is rather untested at the moment.  Let me know if
+it works.
+
+> andAlso :: a -> b -> a
+
+Return the first argument.  Make sure at least an attempt is made to
+evaluate the second argument.  Not terribly useful unless you know
+exactly what you're doing.
+
+> nseq :: () -> b -> b
+
+A special seq operator for the void type.
+
+> alsoAll :: [()] -> ()
+> alsoAll xs = reduce andAlso () (someOrder xs)
+
+> nseqs :: [()] -> ()
+> nseqs xs = reduce lastExp () (someOrder xs)
+
+Note: does *not* use nseq!  This implementation is more
+space-efficient.  
+
+> seqs :: a -> [a] -> a
+> seqs a xs = a `lastExp` reduce lastExp a (someOrder xs)
+
+The first value will be the result if the list is empty.  Otherwise
+the last value computed/seen will be returned.  Don't rely on this
+choice to make particular rational sense in practice.
+
+* ExternObj
+
+Not fully fleshed out yet.
+
+> newtype Ptr a
+
+A raw pointer to objects of type a.
+
+> class Storable a where
+>   sizeof :: a -> Int
+>   store  :: Ptr a -> Int -> a -> ST s ()
+>   load   :: Ptr a -> Int -> ST s a
+
+sizeof gives the size of a raw object a in bytes.
+store stores an object at an offset from a Ptr.
+load loads an object at an offset from a Ptr.
+
+> data Addr
+> fromAddr :: (Storable a) => Addr -> Ptr a
+> toAddr :: (Storable a) => Ptr a -> Addr
+
+Raw addresses.  Note you can't do much with them unless you're a
+compiler/prelude hacker.
+
+* ICell
+
+I-structure cells a la pH.  You had better know what you're doing if
+you don't want to lose side effects here.  You've been warned.
+
+> data ICell a = ICell a
+
+A cell to eventually contain objects of type a.  The "ICell" can be
+pattern matched against, but should not be used as a constructor.
+
+> emptyICell :: (Imperative a) => () -> ICell a
+
+Create a fresh, empty ICell.
+
+> iCell :: a -> ICell a
+
+Creates a full ICell directly.
+
+> iStore :: ICell a -> a -> a
+
+Store a value in an empty ICell.  Error if the cell is already full.
+
+> iFetch :: ICell a -> a
+
+Fetch the contents of an ICell.
+
+And a few non-standard extensions:
+
+> iFull :: ICell a -> Bool
+
+Test whether the iCell is full at the moment.
+
+> iUnify :: ICell a -> ICell a -> ICell a
+
+"unify" two icells: if one is full, its value is written in the
+other.  
+
+* PHArray
+
+Mutable PH-style arrays.  IArray is an I-structure array (write-once),
+MArray is an M-structure array (freely mutable, with empty and full
+state for each element).
+
+> data Array i a
+> data IArray i a
+> data MArray i a
+
+iArray, mArray work like array.
+
+iBounds, mBounds work like bounds.
+
+(!.) works like (!) except on IArrays.
+
+(!^) is "take"---it empties an element of an MArray.
+
+ma !^ i => take the value from index i of ma and return it.
+
+(!^^) is "examine", which works like (!).
+
+> iAStore 	:: (Ix a) => IArray a b -> a -> b -> IArray a b
+
+Store a value into IArray.  Error if element is already full.
+
+> mAStore 	:: (Ix a, Imperative b) => MArray a b -> a -> b -> MArray a b
+
+Block until MArray element is empty, then fill it.
+
+> mAReplace 	:: (Ix a, Imperative b) => MArray a b -> a -> b -> MArray a b
+
+Block until MArray element is full, then replace the value.
+
+> mArrayInit      :: (Ix a, Imperative b) => b -> (a,a) -> MArray a b
+
+Create an MArray with all elements initialized to a single value.
+
+> (//^=) :: (Ix a, Imperative b) => MArray a b -> [(a, b)] -> MArray a b
+
+Store (mAStore) elements into an extant MArray, in any order.
+
+> (//^^=) :: (Ix a, Imperative b) => MArray a b -> [(a, b)] -> MArray a b
+
+Replace (mAReplace) elements in an extant MArray, in any order.
+
+> mAccum :: (Ix a) => (b -> c -> b) -> MArray a b -> [(a,c)] -> MArray a b
+
+Accumulate into an MArray.  RHS may be accumulated in any order we
+want.  The MArray is updated in place.
+
+> iToArray        :: (Ix a) => IArray a b -> Array a b
+
+Convert to a functional array, in place.  Future updates to the IArray
+will still be visible in the functional array.
+
+> mToArray        :: (Ix a, Imperative b) => MArray a b -> Array a b
+
+Convert in place.  If you perform later take operations on the MArray,
+you're out of luck.
+
+> mToIArray       :: (Ix a, Imperative b) => MArray a b -> IArray a b
+
+Convert in place.  If you perform later take operations on the MArray,
+you're out of luck.
+
+> arrayToM        :: (Ix a, Imperative b) =>  Array a b -> MArray a b
+
+*Copies* the array to produce a new mutable array.
+
+* PackedString
+
+Basically the same as GHC's PackedString library, except the internals
+are of course entirely different.
+
+This includes:
+
+psToCString           :: PackedString -> Addr
+toCString             :: String -> Addr
+
+Which are used for converting strings for primitives like getEnv and
+openFile. 
+
