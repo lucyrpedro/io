@@ -1,0 +1,38 @@
+tut134s3.pdf
+
+ssd x hdd - 3
+burst-buffer - 4-11
+datawarp file system - 12-49
+cori's burst-buffer hands-on (uses IOR) - 50-74
+parallel-io - 75-86
+burst-buffer + dwfs - 87-101
+darshan - 102-104
+applications + use-cases (including files!) - 105-182
+
+tut145s3.pdf
+
+io stack - 1-15
+storage hardware - 16-24
+flash and ssd - 25-34
+raid and erasure codes - 35-58
+file system + pfs - 59-102
+cloud storage - 103-127
+in-system storage + bb - 128-141
+bb case study - 142-157
+io forwarding - 158-163
+sci apps and io - 164-184
+posix io - 185-188
+mpi io - 189-203
+parallel netcdf + format - 204-221
+hdf5 + format - 222-242
+io beh/perf + darshan + tokio - 243-275
+
+tut153s3.pdf
+
+in situ + visual - 1-17
+sensei - 18-56
+adios - 57-66
+visit-libsim - 67-74
+paraview-catalyst - 75-84
+sensei + python - 85-101
+in situ costs/perf - 102-126
