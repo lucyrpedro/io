@@ -36,3 +36,30 @@ visit-libsim - 67-74
 paraview-catalyst - 75-84
 sensei + python - 85-101
 in situ costs/perf - 102-126
+
+slides-hd-jk-draft.pdf
+
+5-6. Beowulf Cluster - Yes, if we have further examples to compare/explain the architecture.
+7-10. MPI - No
+11-12. OpenMP - No
+13-14- Parallel Programs - Yes
+15-31. Performance - No
+32-33. I/O Performance - Yes 
+34-41. Storage and FS - Yes
+42-48. Raid - No
+49-51. SAN/NAS - Yes
+52-55. File System - Yes
+56-58. Panasas - No
+59-63. Programming (Parallel) I/O - Yes
+64-65. Posix - Yes
+66-67. MPI-IO - Yes
+68. Shared File Pointer - No
+69-72. File Views - Yes
+73-74. Collective I/O - Yes
+75. Data-Sieving - ?
+76-79. Mixed - Yes
+80-84. HDF5 - No
+85. I/O Programming Recommendation - Yes
+87. Exercise - Parallelization of a Matrix Vector multiplication - Good idea for the lab.
+
+
