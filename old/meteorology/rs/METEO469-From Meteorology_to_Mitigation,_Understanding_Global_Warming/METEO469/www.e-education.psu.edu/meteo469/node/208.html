@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<!-- Mirrored from www.e-education.psu.edu/meteo469/node/208 by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 29 Jan 2019 19:47:36 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Generator" content="Drupal 7 (http://drupal.org)" />
+<link rel="canonical" href="208.html" />
+<link rel="shortlink" href="208.html" />
+<link rel="prev" href="123.html" />
+<link rel="up" href="118.html" />
+<link rel="next" href="209.html" />
+<script type="text/x-mathjax-config">MathJax.Hub.Config({
+  extensions: ['tex2jax.js'],
+  jax: ['input/TeX','output/HTML-CSS'],
+  tex2jax: {
+    inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+    processEscapes: true
+  },
+  showProcessingMessages: false,
+  messageStyle: 'none'
+});</script><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+  <title>Review of Basic Statistical Analysis Methods for Analyzing Data - Part 2 | METEO 469: From Meteorology to Mitigation: Understanding Global Warming D7</title>  
+  <style type="text/css" media="all">
+@import url("../modules/system/system.base57c0.css?pjybv3");
+@import url("../modules/system/system.menus57c0.css?pjybv3");
+@import url("../modules/system/system.messages57c0.css?pjybv3");
+@import url("../modules/system/system.theme57c0.css?pjybv3");
+</style>
+<style type="text/css" media="screen">
+@import url("../sites/all/modules/iconizer/files_icons57c0.css?pjybv3");
+@import url("../sites/all/modules/iconizer/proto_icons57c0.css?pjybv3");
+</style>
+<style type="text/css" media="all">
+@import url("../modules/book/book57c0.css?pjybv3");
+@import url("../modules/field/theme/field57c0.css?pjybv3");
+@import url("../modules/node/node57c0.css?pjybv3");
+@import url("../modules/search/search57c0.css?pjybv3");
+@import url("../modules/user/user57c0.css?pjybv3");
+@import url("../sites/all/modules/extlink/extlink57c0.css?pjybv3");
+</style>
+<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata:regular,700&amp;subset=latin-ext" media="all" />
+<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,regular,600,700&amp;subset=latin-ext" media="all" />
+<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif&amp;subset=latin-ext" media="all" />
+<style type="text/css" media="all">
+@import url("../sites/all/modules/hidden_nodes/hidden_nodes57c0.css?pjybv3");
+@import url("../sites/all/modules/print/print_ui/css/print_ui.theme57c0.css?pjybv3");
+@import url("../sites/all/modules/responsive_menus/styles/responsive_menus_simple/css/responsive_menus_simple57c0.css?pjybv3");
+@import url("../sites/all/libraries/superfish/css/superfish57c0.css?pjybv3");
+</style>
+<style type="text/css" media="print">
+@import url("../sites/all/themes/esp/print57c0.css?pjybv3");
+</style>
+<style type="text/css" media="all">
+@import url("../sites/all/themes/omega/alpha/css/alpha-reset57c0.css?pjybv3");
+@import url("../sites/all/themes/omega/alpha/css/alpha-mobile57c0.css?pjybv3");
+@import url("../sites/all/themes/omega/alpha/css/alpha-alpha57c0.css?pjybv3");
+@import url("../sites/all/themes/omega/omega/css/formalize57c0.css?pjybv3");
+@import url("../sites/all/themes/omega/omega/css/omega-text57c0.css?pjybv3");
+@import url("../sites/all/themes/omega/omega/css/omega-branding57c0.css?pjybv3");
+@import url("../sites/all/themes/omega/omega/css/omega-menu57c0.css?pjybv3");
+@import url("../sites/all/themes/omega/omega/css/omega-forms57c0.css?pjybv3");
+@import url("../sites/all/themes/omega/omega/css/omega-visuals57c0.css?pjybv3");
+@import url("../sites/all/themes/esp/css/global57c0.css?pjybv3");
+</style>
+
+<!--[if (lt IE 9)&(!IEMobile)]>
+<style type="text/css" media="all">
+@import url("https://www.e-education.psu.edu/meteo469/sites/all/themes/esp/css/esp-alpha-default.css?pjybv3");
+@import url("https://www.e-education.psu.edu/meteo469/sites/all/themes/esp/css/esp-alpha-default-normal.css?pjybv3");
+@import url("https://www.e-education.psu.edu/meteo469/sites/all/themes/omega/alpha/css/grid/alpha_default/normal/alpha-default-normal-12.css?pjybv3");
+</style>
+<![endif]-->
+
+<!--[if gte IE 9]><!-->
+<style type="text/css" media="all and (min-width: 740px) and (min-device-width: 740px), (max-device-width: 800px) and (min-width: 740px) and (orientation:landscape)">
+@import url("../sites/all/themes/esp/css/esp-alpha-default57c0.css?pjybv3");
+@import url("../sites/all/themes/esp/css/esp-alpha-default-narrow57c0.css?pjybv3");
+@import url("../sites/all/themes/omega/alpha/css/grid/alpha_default/narrow/alpha-default-narrow-1257c0.css?pjybv3");
+</style>
+<!--<![endif]-->
+
+<!--[if gte IE 9]><!-->
+<style type="text/css" media="all and (min-width: 980px) and (min-device-width: 980px), all and (max-device-width: 1024px) and (min-width: 1024px) and (orientation:landscape)">
+@import url("../sites/all/themes/esp/css/esp-alpha-default57c0.css?pjybv3");
+@import url("../sites/all/themes/esp/css/esp-alpha-default-normal57c0.css?pjybv3");
+@import url("../sites/all/themes/omega/alpha/css/grid/alpha_default/normal/alpha-default-normal-1257c0.css?pjybv3");
+</style>
+<!--<![endif]-->
+  <script type="text/javascript" src="../misc/jquery1cc4.js?v=1.4.4"></script>
+<script type="text/javascript" src="../misc/jquery.once7839.js?v=1.2"></script>
+<script type="text/javascript" src="../misc/drupal57c0.js?pjybv3"></script>
+<script type="text/javascript" src="../sites/all/modules/extlink/extlink57c0.js?pjybv3"></script>
+<script type="text/javascript" src="../sites/all/modules/mathjax/mathjax57c0.js?pjybv3"></script>
+<script type="text/javascript" src="../sites/all/modules/custom_js_libraries/printable_links/printable_links57c0.js?pjybv3"></script>
+<script type="text/javascript" src="../sites/all/modules/custom_js_libraries/toggler/toggler57c0.js?pjybv3"></script>
+<script type="text/javascript" src="../sites/all/modules/responsive_menus/styles/responsive_menus_simple/js/responsive_menus_simple57c0.js?pjybv3"></script>
+<script type="text/javascript" src="../sites/all/modules/google_analytics/googleanalytics57c0.js?pjybv3"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","../../../www.google-analytics.com/analytics.js","ga");ga("create", "UA-24504751-49", {"cookieDomain":"auto"});ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript" src="../../../cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJaxdda6.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript" src="../sites/all/libraries/superfish/jquery.hoverIntent.minified57c0.js?pjybv3"></script>
+<script type="text/javascript" src="../sites/all/libraries/superfish/sfsmallscreen57c0.js?pjybv3"></script>
+<script type="text/javascript" src="../sites/all/libraries/superfish/supposition57c0.js?pjybv3"></script>
+<script type="text/javascript" src="../sites/all/libraries/superfish/superfish57c0.js?pjybv3"></script>
+<script type="text/javascript" src="../sites/all/libraries/superfish/supersubs57c0.js?pjybv3"></script>
+<script type="text/javascript" src="../sites/all/modules/superfish/superfish57c0.js?pjybv3"></script>
+<script type="text/javascript" src="../sites/all/themes/omega/omega/js/jquery.formalize57c0.js?pjybv3"></script>
+<script type="text/javascript" src="../sites/all/themes/omega/omega/js/omega-mediaqueries57c0.js?pjybv3"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/meteo469\/","pathPrefix":"","ajaxPageState":{"theme":"esp","theme_token":"3E82h5nXXufRGgiE6pKoNg5DNP4fgFf_sH9t6NMaP4w","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/extlink\/extlink.js":1,"sites\/all\/modules\/mathjax\/mathjax.js":1,"sites\/all\/modules\/custom_js_libraries\/printable_links\/printable_links.js":1,"sites\/all\/modules\/custom_js_libraries\/toggler\/toggler.js":1,"sites\/all\/modules\/responsive_menus\/styles\/responsive_menus_simple\/js\/responsive_menus_simple.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"0":1,"https:\/\/cdnjs.cloudflare.com\/ajax\/libs\/mathjax\/2.7.0\/MathJax.js?config=TeX-AMS-MML_HTMLorMML":1,"sites\/all\/libraries\/superfish\/jquery.hoverIntent.minified.js":1,"sites\/all\/libraries\/superfish\/sfsmallscreen.js":1,"sites\/all\/libraries\/superfish\/supposition.js":1,"sites\/all\/libraries\/superfish\/superfish.js":1,"sites\/all\/libraries\/superfish\/supersubs.js":1,"sites\/all\/modules\/superfish\/superfish.js":1,"sites\/all\/themes\/omega\/omega\/js\/jquery.formalize.js":1,"sites\/all\/themes\/omega\/omega\/js\/omega-mediaqueries.js":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"sites\/all\/modules\/iconizer\/files_icons.css":1,"sites\/all\/modules\/iconizer\/files_icons-override.css":1,"sites\/all\/modules\/iconizer\/proto_icons.css":1,"modules\/book\/book.css":1,"modules\/field\/theme\/field.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/extlink\/extlink.css":1,"https:\/\/fonts.googleapis.com\/css?family=Inconsolata:regular,700\u0026subset=latin-ext":1,"https:\/\/fonts.googleapis.com\/css?family=Open+Sans:300,regular,600,700\u0026subset=latin-ext":1,"https:\/\/fonts.googleapis.com\/css?family=PT+Serif\u0026subset=latin-ext":1,"sites\/all\/modules\/hidden_nodes\/hidden_nodes.css":1,"sites\/all\/modules\/print\/print_ui\/css\/print_ui.theme.css":1,"sites\/all\/modules\/responsive_menus\/styles\/responsive_menus_simple\/css\/responsive_menus_simple.css":1,"sites\/all\/libraries\/superfish\/css\/superfish.css":1,"sites\/all\/themes\/esp\/print.css":1,"public:\/\/google_fonts.css":1,"sites\/all\/themes\/omega\/alpha\/css\/alpha-reset.css":1,"sites\/all\/themes\/omega\/alpha\/css\/alpha-mobile.css":1,"sites\/all\/themes\/omega\/alpha\/css\/alpha-alpha.css":1,"sites\/all\/themes\/omega\/omega\/css\/formalize.css":1,"sites\/all\/themes\/omega\/omega\/css\/omega-text.css":1,"sites\/all\/themes\/omega\/omega\/css\/omega-branding.css":1,"sites\/all\/themes\/omega\/omega\/css\/omega-menu.css":1,"sites\/all\/themes\/omega\/omega\/css\/omega-forms.css":1,"sites\/all\/themes\/omega\/omega\/css\/omega-visuals.css":1,"sites\/all\/themes\/esp\/css\/global.css":1,"ie::normal::sites\/all\/themes\/esp\/css\/esp-alpha-default.css":1,"ie::normal::sites\/all\/themes\/esp\/css\/esp-alpha-default-normal.css":1,"ie::normal::sites\/all\/themes\/omega\/alpha\/css\/grid\/alpha_default\/normal\/alpha-default-normal-12.css":1,"narrow::sites\/all\/themes\/esp\/css\/esp-alpha-default.css":1,"narrow::sites\/all\/themes\/esp\/css\/esp-alpha-default-narrow.css":1,"sites\/all\/themes\/omega\/alpha\/css\/grid\/alpha_default\/narrow\/alpha-default-narrow-12.css":1,"normal::sites\/all\/themes\/esp\/css\/esp-alpha-default.css":1,"normal::sites\/all\/themes\/esp\/css\/esp-alpha-default-normal.css":1,"sites\/all\/themes\/omega\/alpha\/css\/grid\/alpha_default\/normal\/alpha-default-normal-12.css":1}},"responsive_menus":[{"toggler_text":"\u2630 Menu","selectors":["#main-menu","#superfish-1"],"media_size":"720","media_unit":"px","absolute":"1","remove_attributes":"1","responsive_menus_style":"responsive_menus_simple"}],"extlink":{"extTarget":"_blank","extClass":"ext","extLabel":"(link is external)","extImgClass":0,"extIconPlacement":"append","extSubdomains":0,"extExclude":"","extInclude":"","extCssExclude":"","extCssExplicit":"","extAlert":0,"extAlertText":"This link will take you to an external web site. We are not responsible for their content.","mailtoClass":"mailto","mailtoLabel":"(link sends e-mail)"},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"},"superfish":{"1":{"id":"1","sf":{"delay":"0","animation":{"opacity":"show","height":"show"},"speed":"\u0027fast\u0027","autoArrows":false,"dropShadows":false,"disableHI":false},"plugins":{"smallscreen":{"mode":"window_width","addSelected":false,"menuClasses":false,"hyperlinkClasses":false,"title":"Main menu"},"supposition":true,"bgiframe":false,"supersubs":{"minWidth":"12","maxWidth":"27","extraWidth":1}}}},"urlIsAjaxTrusted":{"\/meteo469\/node\/208":true},"omega":{"layouts":{"primary":"normal","order":["narrow","normal"],"queries":{"narrow":"all and (min-width: 740px) and (min-device-width: 740px), (max-device-width: 800px) and (min-width: 740px) and (orientation:landscape)","normal":"all and (min-width: 980px) and (min-device-width: 980px), all and (max-device-width: 1024px) and (min-width: 1024px) and (orientation:landscape)"}}}});
+//--><!]]>
+</script>
+  <!--[if lt IE 9]><script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+<body class="html not-front not-logged-in page-node page-node- page-node-208 node-type-book context-node">
+  <div id="skip-link">
+    <a href="#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div class="page clearfix" id="page">
+      <header id="section-header" class="section section-header">
+  <div id="zone-branding-wrapper" class="zone-wrapper zone-branding-wrapper clearfix">  
+  <div id="zone-branding" class="zone zone-branding clearfix container-12">
+    <div class="grid-12 region region-branding" id="region-branding">
+  <div class="region-inner region-branding-inner">
+        <div class="block block-block block-6 block-block-6 odd block-without-title" id="block-block-6">
+  <div class="block-inner clearfix">
+                
+    <div class="content clearfix">
+      <div class="tex2jax"><div class="course-title-container">
+	<table>
+		<tbody>
+			<tr>
+				<td><span class="course-title">METEO 469</span><br>
+					<span class="course-name">From Meteorology to Mitigation: Understanding Global Warming</span></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<p><a href="http://www.meteo.psu.edu/" id="department"><img id="department" src="../sites/www.e-education.psu.edu.meteo469/files/meteo_0.png" /></a> <a href="http://www.psu.edu/" id="psu"><span class="hidden">Penn State</span></a></p></div>    </div>
+  </div>
+</div>  </div>
+</div>  </div>
+</div><div id="zone-menu-wrapper" class="zone-wrapper zone-menu-wrapper clearfix">  
+  <div id="zone-menu" class="zone zone-menu clearfix container-12">
+    <div class="grid-12 region region-menu" id="region-menu">
+  <div class="region-inner region-menu-inner">
+        <div class="block block-superfish block-1 block-superfish-1 odd block-without-title" id="block-superfish-1">
+  <div class="block-inner clearfix">
+                
+    <div class="content clearfix">
+      <ul id="superfish-1" class="menu sf-menu sf-main-menu sf-horizontal sf-style-none sf-total-items-7 sf-parent-items-1 sf-single-items-6"><li id="menu-2860-1" class="first odd sf-item-1 sf-depth-1 sf-no-children"><a href="../index.html" class="sf-depth-1">HOME</a></li><li id="menu-2889-1" class="middle even sf-item-2 sf-depth-1 sf-no-children"><a href="../syllabus.html" class="sf-depth-1">SYLLABUS</a></li><li id="menu-2884-1" class="middle odd sf-item-3 sf-depth-1 sf-no-children"><a href="260.html" class="sf-depth-1">ORIENTATION</a></li><li id="menu-2890-1" class="middle even sf-item-4 sf-depth-1 sf-no-children"><a href="111.html" class="sf-depth-1">LESSONS</a></li><li id="menu-2891-1" class="middle odd sf-item-5 sf-depth-1 sf-no-children"><a href="https://psu.instructure.com/" class="sf-depth-1">Canvas</a></li><li id="menu-2885-1" class="middle even sf-item-6 sf-depth-1 sf-total-children-5 sf-parent-children-0 sf-single-children-5 menuparent"><a href="242.html" class="sf-depth-1 menuparent">RESOURCES</a><ul><li id="menu-2887-1" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a href="230.html" class="sf-depth-2">INSTRUCTOR INFORMATION</a></li><li id="menu-2892-1" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a href="https://esp.e-education.psu.edu/" class="sf-depth-2">Program Home Page</a></li><li id="menu-2951-1" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a href="https://esp.e-education.psu.edu/node/947" class="sf-depth-2">Participation in Peer-to-Peer Activities </a></li><li id="menu-2950-1" class="middle even sf-item-4 sf-depth-2 sf-no-children"><a href="http://guides.libraries.psu.edu/onlinestudentlibraryguide" class="sf-depth-2">Library Resources</a></li><li id="menu-2888-1" class="last odd sf-item-5 sf-depth-2 sf-no-children"><a href="55.html" class="sf-depth-2">GETTING HELP</a></li></ul></li><li id="menu-2861-1" class="last odd sf-item-7 sf-depth-1 sf-no-children"><a href="https://www.e-education.psu.edu/meteo469/login" class="sf-depth-1">LOGIN</a></li></ul>    </div>
+  </div>
+</div>  </div>
+</div>
+  </div>
+</div></header>    
+      <section id="section-content" class="section section-content">
+  <div id="zone-content-wrapper" class="zone-wrapper zone-content-wrapper clearfix">  
+  <div id="zone-content" class="zone zone-content clearfix container-12">    
+        
+        <div class="grid-9 region region-content" id="region-content">
+  <div class="region-inner region-content-inner">
+    <a id="main-content"></a>
+                <h1 class="title" id="page-title">Review of Basic Statistical Analysis Methods for Analyzing Data - Part 2</h1>
+                        <div class="block block-system block-main block-system-main odd block-without-title" id="block-system-main">
+  <div class="block-inner clearfix">
+                
+    <div class="content clearfix">
+      <article class="node node-book node-published node-not-promoted node-not-sticky author-martin-gutowski odd clearfix" id="node-book-208">
+            
+  
+  <div class="content clearfix">
+    <span class="print-link"><span class="print_html"><a href="https://www.e-education.psu.edu/meteo469/print/book/export/html/208" title="Display a printer-friendly version of this page." class="print-page" rel="nofollow"><img class="print-icon print-icon-margin" src="../sites/all/modules/print/icons/print_icon.png" width="16px" height="16px" alt="Print" title="Print" />Print</a></span></span><div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even"><div class="tex2jax"><h3>Establishing Trends</h3>
+
+<p>Various statistical hypothesis tests have been developed for exploring whether there is something more interesting in one or more data sets than would be expected from the chance fluctuations Gaussian noise. The simplest of these tests is known as <em>linear regression</em> or <em>ordinary least squares</em>. We will not go into very much detail about the underlying statistical foundations of the approach, but if you are looking for a <a href="http://en.wikipedia.org/wiki/Ordinary_least_squares">decent tutorial</a>, you can find it on Wikipedia.</p>
+
+<p>The basic idea is that we test for an alternative hypothesis that posits a linear relationship between the <em>independent variable</em> (e.g., time, <em>t</em> in the past examples, but for purposes that will later become clear, we will call it <em>x</em>) and the<em> dependent variable</em> (i.e., the hypothetical temperature anomalies we have been looking at, but we will use the generic variable <em>y</em>).</p>
+
+<p>The underlying statistical model for the data is:</p>
+
+<div class="box-math"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"> <mrow> <msub> <mi>y</mi> <mi>i</mi> </msub> <mo>=</mo><mi>a</mi><mo>+</mo><mi>b</mi><mo>⋅</mo><msub> <mi>χ</mi> <mi>i</mi> </msub> <mo>+</mo><msub> <mi>ε</mi> <mi>i</mi> </msub> </mrow> </math></div>
+
+<div class="box-math-caption">(5)</div>
+
+<div class="box-math-clear"></div>
+
+<p>where i ranges from 1 to <em>N, </em><em>a</em> is the intercept of the linear relationship between <em>y</em> and <em>x</em>, <em>b</em> is the slope of that relationship, and ε is a random noise sequence. The simplest assumption is that ε is Gaussian white noise, but we will be forced to relax that assumption at times.</p>
+
+<p>Linear regression determines the best fit values of <em>a</em> and<em> b</em> to the given data by minimizing the <em>sum of the squared differences</em> between the observations <em>y</em> and the values predicted by the linear model <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"> <mrow> <mover accent="true"> <mi>y</mi> <mo>^</mo> </mover> <mo>=</mo><mi>a</mi><mo>+</mo><mi>b</mi><mi>x</mi></mrow> </math>. The <em>residuals</em> are our estimate of the variation in the data that is not accounted for by the linear relationship, and are defined by</p>
+
+<div class="box-math"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"> <mrow> <mtext> </mtext><msub> <mi>ε</mi> <mi>i</mi> </msub> <mo>=</mo><msub> <mi>y</mi> <mi>i</mi> </msub> <mo>−</mo><msub> <mover accent="true"> <mi>y</mi> <mo>^</mo> </mover> <mi>i</mi> </msub> </mrow> </math></div>
+
+<div class="box-math-caption">(6)</div>
+
+<div class="box-math-clear"></div>
+
+<p>For simple linear regression, i.e., <em>ordinary least squares</em>, the estimates of <em>a</em> and <em>b</em> are readily obtained:</p>
+
+<div class="box-math"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"> <mrow> <mi>b</mi><mo>=</mo><mfrac> <mrow> <mrow><mo>[</mo> <mrow> <mi>N</mi><mo>⋅</mo><mi>Σ</mi><msub> <mi>y</mi> <mi>i</mi> </msub> <msub> <mi>x</mi> <mi>i</mi> </msub> <mo>−</mo><mi>Σ</mi><msub> <mi>y</mi> <mi>i</mi> </msub> <mo>⋅</mo><mi>Σ</mi><msub> <mi>x</mi> <mi>i</mi> </msub> </mrow> <mo>]</mo></mrow></mrow> <mrow> <mrow><mo>[</mo> <mrow> <mi>N</mi><mo>⋅</mo><mi>Σ</mi><msub> <mi>x</mi> <mi>i</mi> </msub> <msup> <mrow></mrow> <mn>2</mn> </msup> <mo>−</mo><mi>Σ</mi><msup> <mrow> <mrow><mo>(</mo> <mrow> <msub> <mi>x</mi> <mi>i</mi> </msub> </mrow> <mo>)</mo></mrow></mrow> <mn>2</mn> </msup> </mrow> <mo>]</mo></mrow></mrow> </mfrac> </mrow> </math></div>
+
+<div class="box-math-caption">(7)</div>
+
+<div class="box-math-clear"></div>
+
+<p>and</p>
+
+<div class="box-math"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"> <mrow> <mi>a</mi><mo>=</mo><mrow><mo>(</mo> <mrow> <mfrac bevelled="true"> <mn>1</mn> <mi>N</mi> </mfrac> </mrow> <mo>)</mo></mrow><mo>⋅</mo><mi>Σ</mi><msub> <mi>y</mi> <mi>i</mi> </msub> <mo>−</mo><mfrac> <mi>b</mi> <mrow> <mi>N</mi><mo>⋅</mo><mi>Σ</mi><msub> <mi>x</mi> <mi>i</mi> </msub> </mrow> </mfrac> </mrow> </math></div>
+
+<div class="box-math-caption">(8)</div>
+
+<div class="box-math-clear"></div>
+
+<p>The parameter we are most interested in is <em>b</em>, since this is what determines whether or not there is a significant linear relationship between <em>y</em> and <em>x</em>.</p>
+
+<p>The sampling uncertainty in <em>b</em> can also be readily obtained:</p>
+
+<div class="box-math"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"> <mrow> <msub> <mi>σ</mi> <mi>b</mi> </msub> <mo>=</mo><mfrac> <mrow> <mi>s</mi><mi>t</mi><mi>d</mi><mrow><mo>(</mo> <mi>ε</mi> <mo>)</mo></mrow></mrow> <mrow> <msup> <mrow> <mrow><mo>[</mo> <mrow> <mi>Σ</mi><msup> <mrow> <mrow><mo>(</mo> <mrow> <msub> <mi>x</mi> <mi>i</mi> </msub> <mo>−</mo><mi>μ</mi><mrow><mo>(</mo> <mi>x</mi> <mo>)</mo></mrow></mrow> <mo>)</mo></mrow></mrow> <mn>2</mn> </msup> </mrow> <mo>]</mo></mrow></mrow> <mrow> <mfrac> <mn>1</mn> <mn>2</mn> </mfrac> </mrow> </msup> </mrow> </mfrac> </mrow> </math></div>
+
+<div class="box-math-caption">(9)</div>
+
+<div class="box-math-clear"></div>
+
+<p>where std(ε) is standard deviation of<strong> </strong>ε<strong> </strong>and μ is the mean of <em>x</em>. A statistically significant trend amounts to the finding that <em>b</em> is significantly different from zero. The 95% confidence range for <em>b</em> is given by <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"> <mrow> <mo> </mo><mi>b</mi><mo>±</mo><mn>2</mn><mtext> </mtext><msub> <mi>σ</mi> <mi>b</mi> </msub> </mrow> </math> . If this interval does not cross zero, then one can conclude that <em>b</em> is significantly different from zero. We can alternatively measure the significance in terms of the <em>linear correlation coefficient</em>, <em>r</em> , between the independent and dependent variables which is related to <em>b</em> through</p>
+
+<div class="box-math"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"> <mrow> <mi>r</mi><mo>=</mo><mi>b</mi><mo>⋅</mo><mfrac> <mrow> <mi>s</mi><mi>t</mi><mi>d</mi><mrow><mo>(</mo> <mi>x</mi> <mo>)</mo></mrow></mrow> <mrow> <mi>s</mi><mi>t</mi><mi>d</mi><mrow><mo>(</mo> <mi>y</mi> <mo>)</mo></mrow></mrow> </mfrac> </mrow> </math></div>
+
+<div class="box-math-caption">(10)</div>
+
+<div class="box-math-clear"></div>
+
+<p><em>r</em> is readily calculated directly from the data:</p>
+
+<div class="box-math"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"> <mrow> <mi>r</mi><mo>=</mo><mfrac> <mrow> <mrow><mo>(</mo> <mrow> <mfrac bevelled="true"> <mn>1</mn> <mrow> <mi>N</mi><mo>−</mo><mn>1</mn></mrow> </mfrac> </mrow> <mo>)</mo></mrow><mo>⋅</mo><mi>Σ</mi><mrow><mo>(</mo> <mrow> <mi>x</mi><mo>−</mo><mover accent="true"> <mi>x</mi> <mo>¯</mo> </mover> </mrow> <mo>)</mo></mrow><mrow><mo>(</mo> <mrow> <mi>y</mi><mo>−</mo><mover accent="true"> <mi>y</mi> <mo>¯</mo> </mover> </mrow> <mo>)</mo></mrow></mrow> <mrow> <mi>s</mi><mi>t</mi><mi>d</mi><mrow><mo>(</mo> <mi>x</mi> <mo>)</mo></mrow><mo>⋅</mo><mi>s</mi><mi>t</mi><mi>d</mi><mrow><mo>(</mo> <mi>y</mi> <mo>)</mo></mrow></mrow> </mfrac> </mrow> </math></div>
+
+<div class="box-math-caption">(11)</div>
+
+<div class="box-math-clear"></div>
+
+<p>where over-bar indicated the mean. Unlike <em>b</em>, which has dimensions (e.g., °C per year in the case where <em>y</em> is temperature and <em>x</em> is time), <em>r </em>is conveniently a dimensionless number whose absolute value is between 0 and 1. The larger the value of <em>r</em> (either positive or negative), the more significant is the trend. In fact, the square of <em>r</em> (<em>r</em><sup>2</sup>) is a measure of the fraction of variation in the data that is accounted for by the trend.</p>
+
+<p>We measure the significance of any detected trends in terms of a a <em>p</em>-value. The <em>p</em>-value is an estimate of the probability that we would wrongly reject the <em>null hypothesis</em> that there is no trend in the data in favor of the <em>alternative hypothesis</em> that there is a linear trend in the data — the <em>signal</em> that we are searching for in this case. Therefore, the smaller the <em>p</em> value, the less likely that you would observe as large a trend as is found in the data from random fluctuations alone. By convention, one often requires that <em>p</em>&lt;0.05 to conclude that there is a significant trend (i.e., that only 5% of the time should such a trend have occurred from chance alone), but that is not a magic number.</p>
+
+<p>The choice of <em>p</em> in statistical hypothesis testing represents a balance between the acceptable level of <em>false positives</em> vs. <em>false negatives</em>. In terms of our example, a false positive would be detecting a statistically significant trend, when, in fact, there is no trend; a false negative would be concluding that there is no statistically significant trend, when, in fact, there is a trend. A lower threshold (that is, higher <em>p</em>-value, e.g., <em>p</em> = 0.10) makes it more likely to detect a real but weak signal, but also more likely to falsely conclude that there is a real trend when there is not. Conversely, a higher threshold (that is, lower p-value, e.g., <em>p</em> = 0.01) makes false positives less likely, but also makes it less likely to detect a weak but real signal.</p>
+
+<p>There are a few other important considerations. There are often two different alternative hypotheses that might be invoked. In this case, if there is a trend in the data, who is to say whether it should be positive (<em>b</em> &gt; 0) or negative (<em>b</em> &lt; 0)? In some cases, we might want only to know whether or not there is a trend, and we do not care what sign it has. We would then be invoking a <em>two-sided hypothesis</em>: is the slope <em>b</em> large enough in magnitude to conclude that it is significantly different from zero (whether positive or negative)? We would obtain a <em>p</em>-value based on the assumption of a two-sided hypothesis test. On the other hand, suppose we were testing the hypothesis that temperatures were warming due to increased greenhouse gas concentrations. In that case, we would reject a negative trend as being unphysical — inconsistent with our <em>a priori </em>understanding that increased greenhouse gas concentrations should lead to significant <em>warming</em>. In this case, we would be invoking a one-sided hypothesis. The results of a one-sided test will double the significance compared with the corresponding two-sided test, because we are throwing out as unphysical half of the random events (chance negative trends). So, if we obtain, for a given value of <em>b</em> (or <em>r</em>) a <em>p</em>-value of <em>p </em>= 0.1 for the two-sided test, than the <em>p</em>-value would be <em>p</em> = 0.05 for the corresponding one-sided test.</p>
+
+<p><strong>There is a nice <a href="http://vassarstats.net/tabs.html">online calculator</a>, courtesy of Vassar college, for obtaining a <em>p</em>-value (both one-sided and two-sided) given the linear correlation coefficient, <em>r</em> , and the length of the data series, <em>N</em>.</strong> There is still one catch, however. If the residual<em> series</em> ε of equation 6 contains <em>autocorrelation</em>, then we have to correct the degrees of freedom, <em>N'</em>, which is less than the nominal number of data points, <em>N</em>. The correction can be made, at least approximately in many instances, using the<em> lag-one autocorrelation coefficient</em>. This is simply the linear correlation coefficient, <em>r</em><sub>1,</sub><em> </em>between ε, and a carbon copy of ε lagged by one time step. In fact, <em>r</em><sub>1</sub> provides an approximation to the parameter <strong>ρ</strong> introduced in equation 2. If<em> </em><em>r</em><sub>1</sub> is found to be positive and statistically significant (this can be checked using the online link provided above), then we can conclude that there is a statistically significant level of<em> autocorrelation</em> in our residuals, which must be corrected for. For a series of length <em>N</em> = 100, using a one-sided significant criterion of <em>p</em> = 0.05, we would need <em>r</em><sub>1 </sub>&gt; 0.17 to conclude that there is significant autocorrelation in our residuals.</p>
+
+<p>Fortunately, the fix is very simple. If we find a positive and statistically significant value of <em>r</em><sub>1</sub>, then we can use the same significance criterion for our trend analysis described earlier, except we have to evaluate the significance of the value of<em> r</em> for our linear regression analysis (not to be confused with the autocorrelation of residuals <em>r</em><sub>1</sub>) using a reduced, effective degrees of freedom <em>N'</em>, rather than the nominal sample size <em>N</em>. Moreover, <em>N'</em> is none other than the <em>N'</em> given earlier in equation 3 where we equate <math display="block" xmlns="http://www.w3.org/1998/Math/MathML"> <mrow> <mstyle mathsize="normal" mathvariant="inline"><mi>ρ</mi></mstyle><mo> </mo><mo>=</mo><mo> </mo><msub> <mi>r</mi> <mn>1</mn> </msub></mrow></math></p>
+
+<p>That's about it for <strong>ordinary least squares</strong> (<strong>OLS</strong>), the main statistical tool we will use in this course. Later, we will encounter the more complicated case where there may be <em>multiple independent variables</em>. For the time being, however, let us consider the problem of trend analysis, returning to the synthetic data series discussed earlier. We will continue to imagine that the dependent variable (<em>y</em>) is temperature <em>T</em> in °C and the independent variable (<em>x</em>) is time <em>t</em> in years.</p>
+
+<p>First, let us calculate the trend in the original Gaussian white noise series of length <em>N</em> = 200 shown in Figure 2.12(1). The linear trend is shown below:</p>
+
+<div class="img-center"><img alt="Gaussian White Noise with linear trend shown." src="https://www.e-education.psu.edu/meteo469/sites/www.e-education.psu.edu.meteo469/files/lesson02/whitenoiseshowntrend_l.gif">
+	<div class="img-caption">Figure 2.12(6): <em>N</em>=200 years of Gaussian White Noise with linear trend shown.</div>
+
+	<div class="img-credit">Credit: Michael Mann</div>
+</div>
+
+<p>The trend line is given by: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"> <mrow> <mover accent="true"> <mi>T</mi> <mo>^</mo> </mover> <mo>=</mo><mn>0.0006</mn><mo>⋅</mo><mi>t</mi><mo>−</mo><mn>0.1140</mn></mrow> </math>, and the regression gives <em>r</em> = 0.0332. So there is an apparent positive warming trend of 0.0006 °C per year, or alternatively, 0.06 °C per century. Is that statistically significant? It does not sound very impressive, does it? And that <em>r</em> looks pretty small! But let us be rigorous about this. We have<em> N </em>= 200, and if we use the online calculator link provided above, we get a <em>p</em>-value of 0.64 for the (default) two-sided hypothesis. That is huge, implying that we would be foolish in this case to reject the null hypothesis of no trend. But, you might say, we were looking for <em>warming</em>, so we should use a one-sided hypothesis. That halves the <em>p</em>-value to 0.32. But that is still a far cry from even the least stringent (e.g., <em>p </em>= 0.10) thresholds for significance. It is clear that there is no reason to reject the null hypothesis that this is a random time series with no real trend.</p>
+
+<p>Next, let us consider the red noise series of length <em>N</em> = 200 shown earlier in Figure 2.12(2).</p>
+
+<div class="img-center"><img alt="N=200 years of Gaussian 'red noise' with ρ=0.6 with linear trend shown," src="https://www.e-education.psu.edu/meteo469/sites/www.e-education.psu.edu.meteo469/files/lesson02/rednoiseshowntrend_l.gif">
+	<div class="img-caption">Figure 2.12(7). <em>N</em>=200 years of Gaussian 'red noise' with ρ=0.6 with linear trend shown.</div>
+
+	<div class="img-credit">Credit: Michael Mann</div>
+</div>
+
+<p>As it happens, the trend this time appears nominally greater. The trend line is now given by: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"> <mrow> <mover accent="true"> <mi>T</mi> <mo>^</mo> </mover> <mo>=</mo><mn>0.0014</mn><mo>⋅</mo><mi>t</mi><mo>−</mo><mn>0.2875</mn></mrow> </math>, and the regression gives <em>r</em> = 0.0742. So, there is an apparent positive warming trend of 0.14 degrees C per century. That might not seem entirely negligible. And for <em>N</em> = 200 and using a one-sided hypothesis test, <em>r</em> = 0.0742 is statistically significant at the<em> p</em> = 0.148 level according to the online calculator. That does not breach the typical threshold for significance, but it does suggest a pretty high likelihood (15% chance) that we would err by not rejecting the null hypothesis. At this point, you might be puzzled. After all, we did not put any trend into this series! It is simply a random realization of a red noise process.</p>
+
+<div class="box-activity-optional">
+	<h4>Self Check</h4>
+
+	<p><strong>So why might the regression analysis be leading us astray this time?</strong></p>
+	<textarea cols="100" rows="1"></textarea>
+
+	<p class="toggler">Click for answer.</p>
+
+	<div class="clicktip" id="ctdef">If you said "because we did not account for the effect of autocorrelation" then you are right on target.</div>
+</div>
+
+<p>The problem is that our residuals are not uncorrelated. They are red noise. In fact, the residuals looks a lot like the original series itself:</p>
+
+<div class="img-center"><img alt="N=200 years of Gaussian 'red noise'." src="https://www.e-education.psu.edu/meteo469/sites/www.e-education.psu.edu.meteo469/files/lesson02/rednoisetrendresid_l.gif">
+	<div class="img-caption">Figure 2.12(8). Residuals from linear regression with <em>N</em>=200 years of Gaussian 'red noise' with ρ=0.6</div>
+
+	<div class="img-credit">Credit: Michael Mann</div>
+</div>
+
+<p>This is hardly coincidental; after all, the trend only accounts for <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"> <mrow> <msup> <mi>r</mi> <mn>2</mn> </msup> <mo> </mo><mo>=</mo><msup> <mrow> <mn>0.0742</mn></mrow> <mn>2</mn> </msup> <mo> </mo><mo>=</mo><mn>0.0055</mn></mrow> </math>, i.e., only about half a percent, of the variation in the data. So 99.5% of the variation in the data is still left behind in the residuals. If we calculate the lag-one autocorrelation for the residual series, we get <em>r</em><sub>1</sub> = 0.54. That is, again not coincidentally, very close to the value of ρ = 0.6 we <em>know</em> that we used in generating this series in the first place.</p>
+
+<p>How do we determine if this autocorrelation coefficient is statistically significant? Well, we can treat it like it were a correlation coefficient. The only catch is that we have to use<em> N-1</em> in place of <em>N</em>, because there are only <em>N-1</em> values in the series when we offset it by one time step to form the lagged series required to estimate a lag-one autocorrelation.</p>
+
+<div class="box-activity-optional">
+	<h4>Self Check</h4>
+
+	<p><strong>Should we use a one-sided or two-sided hypothesis test?</strong></p>
+	<textarea cols="100" rows="1"></textarea>
+
+	<p class="toggler">Click for answer.</p>
+
+	<div class="clicktip" id="ctdef">If you said "one-sided" you are correct.<br>
+		After all, we are interested only in whether there is <em>positive</em> autocorrelation in the time series.<br>
+		If we found <em>r</em><sub>1</sub> &lt; 0, that would be an entirely different matter, and a complication we will choose to ignore for now.</div>
+</div>
+
+<p>If we use the online link and calculate the statistical significance of <em>r</em><sub>1 </sub>= 0.54 with <em>N</em>-<em>1</em> = 199, we find that it is statistically significant at <em>p</em> &lt; 0.001. So, clearly, we cannot ignore it. We have to take it into account.</p>
+
+<p>So, in fact, we have to treat the correlation from the regression<em> r</em> = 0.074 as if it has <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"> <mrow> <mi>N</mi><mo>'</mo><mo>=</mo><mrow><mo>(</mo> <mrow> <mn>1</mn><mo>−</mo><mn>0.54</mn></mrow> <mo>)</mo></mrow><mo>/</mo><mrow><mo>(</mo> <mrow> <mn>1</mn><mo>+</mo><mn>0.54</mn></mrow> <mo>)</mo></mrow><mn>200</mn><mo>=</mo><mn>0.30</mn><mrow><mo>(</mo> <mrow> <mn>200</mn></mrow> <mo>)</mo></mrow><mo>=</mo><mn>59.9</mn></mrow> </math> ≈ 60 degrees of freedom, rather than the nominal <em>N</em> = 200 degrees of freedom. Using the interactive online calculator, and replacing <em>N</em> = 200 with the value <em>N'</em> = 60, we now find that a correlation of <em>r</em> = 0.074 is only significant at the<em> p </em>= 0.57 (<em>p</em> = 0.29) for a two-sided (one-sided) test, hardly a level of significance that would cause us to seriously call into doubt the null hypothesis.</p>
+
+<p>At this point, you might be getting a bit exasperated. When, if ever, <em>can </em>we conclude there is a trend? Well, why don't we now consider the case where we know we added a real trend in with the noise, i.e., the example of Figure 2.12(5) where we added a trend of 0.5°C/century to the Gaussian white noise. If we apply our linear regression machinery to this example, we do detect a notable trend:</p>
+
+<div class="img-center"><img alt="Gaussian white noise with added linear trend of 0.5 degrees/century." src="https://www.e-education.psu.edu/meteo469/sites/www.e-education.psu.edu.meteo469/files/lesson02/whitenoisetrend_l.gif">
+	<div class="img-caption">Figure 2.12(9). N=200 years of Gaussian white noise with added linear trend of 0.5 degrees/century; the red line shows trend recovered by the linear regression.</div>
+
+	<div class="img-credit">Credit: Michael Mann</div>
+</div>
+
+<p>Now, <em>that's</em> a trend - your eye isn't fooling you. The trend line is given by: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"> <mrow> <mover accent="true"> <mi>T</mi> <mo>^</mo> </mover> <mo>=</mo><mn>0.0056</mn><mo>⋅</mo><mi>t</mi><mo>−</mo><mn>0.619</mn></mrow> </math>. So there is an apparent positive warming trend of 0.56 °C per century (the 95% uncertainty range that we get for <em>b</em>, i.e., the range <em>b</em>±2 σ<sub><em>b</em></sub>, gives a slope anywhere between 0.32 and 0.79 °C per century, which of course includes the true trend (0.5 °C/century) that we know we originally put in to the series!). The regression gives <em>r</em> = 0.320. For <em>N</em> = 200 and using a one-sided hypothesis test, <em>r</em> = 0.320 is statistically significant at<em> p</em>&lt;0.001 level. And if we calculate the autocorrelation in the residuals, we actually get a small <em>negative</em> value (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"> <mrow> <msub> <mi>r</mi> <mn>1</mn> </msub> <mo> </mo><mo>=</mo><mo>−</mo><mn>0.095</mn></mrow> </math>), so autocorrelation of the residuals is not an issue.</p>
+
+<p>Finally, let's look at what happens when the same trend (0.5 °C/century) is added to the random red noise series of Figure 2.12(2), rather than the white noise series of Figure 2.12(1). What result does the regression analysis give now?</p>
+
+<div class="img-center"><img alt="Gaussian red noise with increasing trend line" src="https://www.e-education.psu.edu/meteo469/sites/www.e-education.psu.edu.meteo469/files/lesson02/rednoisetrend_l.gif">
+	<div class="img-caption">Figure 2.12(10). N=200 years of Gaussian red noise with ρ=0.6 and added linear trend of 0.5 degrees/century; the red line shows trend recovered by the linear regression.</div>
+
+	<div class="img-credit">Credit: Michael Mann</div>
+</div>
+
+<p>We still recover a similar trend, although it's a bit too large. We know that the true trend is 0.5 degrees/century, but the regression gives: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"> <mrow> <mover accent="true"> <mi>T</mi> <mo>^</mo> </mover> <mo>=</mo><mn>0.0064</mn><mo>⋅</mo><mi>t</mi><mo>−</mo><mn>0.793</mn></mrow> </math>. So, there is an apparent positive warming trend of 0.64 °C per century. The nominal 95% uncertainty range that we get for <em>b</em> is 0.37 to 0.92 °C per century, which again includes the true trend (0.5 degrees C/century). The regression gives <em>r</em> = 0.315. For <em>N</em> = 200 and using a one-sided hypothesis test, <em>r</em> = 0.315 is statistically significant at the<em> p</em> &lt; 0.001. So, are we done?</p>
+
+<p>Not quite. This time, it is obvious that the residuals will have autocorrelation, and indeed we have that <em>r</em><sub>1</sub> = 0.539, statistically significant at <em>p</em> &lt; 0.001. So, we will have to use the reduced degrees of freedom <em>N'</em>. We have already calculated <em>N' </em>earlier for ρ = 0.54, and it is roughly <em>N'</em> = 60. Using the online calculator, we now find that the one-sided <em>p</em> = 0.007, i.e., roughly<em> p</em> = 0.01, which corresponds to a 99% significance level. So, the trend is still found to be statistically significant, but the significance is no longer at the astronomical level it was when the residuals were uncorrelated white noise. The effect of the "redness" of the noise has been to make the trend less statistically significant because it is much easier for red noise to have produced a spurious apparent trend from random chance alone. The 95% confidence interval for <em>b</em> also needs to be adjusted to take into account the autocorrelation, though just how to do that is beyond the scope of this course.</p>
+
+<p>Often, residuals have so <em>much</em> additional structure — what is sometimes referred to as <em>heteroscedasticity</em> (how's that for a mouthful?) — that the assumption of simple autocorrelation is itself not adequate. In this case, the basic assumptions of linear regression are called into question and any results regarding trend estimates, statistical significance, etc., are suspect. In this case, more sophisticated methods that are beyond the scope of this course are required.</p>
+
+<p>Now, let us look at some <em>real temperature data</em>! We will use our very own custom online <a href="https://courseware.e-education.psu.edu/courses/meteo101/stat_plotting_tool.swf?filename=STCDecTemp.txt" onclick="window.open(this.href, '', 'resizable=no,status=no,location=no,toolbar=no,menubar=no,fullscreen=no,scrollbars=yes,dependent=no,width=800,height=800'); return false;">Linear Regression Tool</a> written for this course. The demonstration how to use this tool has been recorded in three parts below :</p>
+
+<div class="img-center">
+	<div class="video-wrapper"><iframe allow="autoplay; encrypted-media" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/Qrm_fJRNZFg?rel=0" width="560"></iframe></div>
+
+	<div class="img-caption">
+		<div aria-label="expand content" class="toggler">Part 1<br>
+			Click for transcript.</div>
+
+		<div aria-label="additional content">
+			<p>PRESENTER: OK, we're going to look at an example here. I'm loaning in December average temperatures for State College, Pennsylvania for a 107 year period-- from 1888 to 1994.</p>
+
+			<p>So let's plot out the data. That's what they look like, that's a scatterplot. Or if we like, we can view them in terms of a line plot. If we look at the Statistics tab, it tells you that the average of the temperature is 30.9, just under 31 degrees Fahrenheit. So the average December temperature in State College in Pennsylvania is about a degree Fahrenheit below freezing.</p>
+
+			<p>The standard deviation, 3.95. Just under 4 degrees Fahrenheit. So the fluctuation from year to year in the average December temperature in State College is a fairly sizable 4 degrees Fahrenheit. One year it might be 30, the next year it might be 34, the next year it might be 31, the next year might be 27. That gives you some idea of the fluctuations. And of course we can see those fluctuations here in the plot.</p>
+
+			<p>Now we can calculate a trend line. Let's go to the Linear Regression tool. That calculates the linear trend in the time series. It tells us that there is a trend of 0.25 degrees Fahrenheit warming per year. Or if we want to express that in terms of a century, 2.5 degrees Fahrenheit warming per century. That's the warming trend in State College, Pennsylvania.</p>
+
+			<p>Now the correlation coefficient for that regression is r equals 0.193. If we look that up in the statistics table, put in 107 years for the length of our series, 0.193 for the correlation, and we calculate, the significance tells us that the p-value is 0.023 for a one-tailed test. 0.046 for a two-tailed test.</p>
+
+			<p>So in either case, the correlation, the regression, the trend in the series would be significant at greater than the p equal 0.05 level. It would be significant at the 95% confidence level. Arguably, we should go with the one-tailed test since we're really testing the hypothesis that there is a warming trend in State College.</p>
+
+			<p>Since we know the globe is warming, our hypothesis was unlikely to be that State College showed a cooling trend. We were interested to see if State College showed the warming trend that we know is evident in temperature records around the world. So one could-- in fact, one would typically motivate a one-tailed or a one-sided hypothesis test.</p>
+
+			<p>And so the trend passes that test at the 0.02 level. It's fairly significant.</p>
+
+			<p>If we go back again, we can see the standard error in the slope is 0.012. So if we were to take the value 0.025 and add plus or minus 2 times this number here of 0.012, it would give us the range. The 95% confidence range in the trend. In the slope of this warming trend.</p>
+		</div>
+	</div>
+</div>
+
+<div class="img-center">
+	<div class="video-wrapper"><iframe allow="autoplay; encrypted-media" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/UP-FSwYbx5I?rel=0" width="560"></iframe></div>
+
+	<div class="img-caption">
+		<div aria-label="expand content" class="toggler">Part 2<br>
+			Click for transcript.</div>
+
+		<div aria-label="additional content">
+			<p>PRESENTER: OK, so this slope here-- 0.246-- is roughly twice the standard error in the slope. And in fact, the ratio of the slope to its standard error is something that we call t. And in this case, it's roughly 2. It's a little larger than 2.</p>
+
+			<p>That means that the slope itself is 2 standard errors away from 0, in this case on the positive side. Typically when t is 2 or larger, that signifies a result that's significant at the 0.05 level for a two-tailed test, which is what we see here.</p>
+
+			<p>So in essence, when we see a t value of 2 or larger typically that signifies that the results of the regression are statistically significant, at least for a large sample where n is larger than 100 or so, and as long as we don't have the problem of auto correlation of residuals, which we've talked a bit about before.</p>
+
+			<p>And so our next topic is going to be to talk a little bit about this issue of autocorrelation in this example.</p>
+		</div>
+	</div>
+</div>
+
+<div class="img-center">
+	<div class="video-wrapper"><iframe allow="autoplay; encrypted-media" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/MG_KnBZwcxY?rel=0" width="560"></iframe></div>
+
+	<div class="img-caption">
+		<div aria-label="expand content" class="toggler">Part 3<br>
+			Click for transcript</div>
+
+		<div aria-label="additional content">
+			<p>PRESENTER: Let's look at the residuals. That is to say, what's left over in the data when we remove this regression line. Now we can use the Regression Model tool here. The regression that we've done is where our independent variable is year. Our dependent variable is temperature. And so we can run that regression here.</p>
+
+			<p>And that gives us two things. First of all, it tells us the autocorrelation in the residuals, which as we can see is pretty small. It's minus 0.11. And if we look up the statistical significance of a negative correlation of 0.11 on the order of 100 degrees of freedom, we'll find that it's statistically insignificant. So that means that in this particular case, it doesn't look like we have to worry about the added caveats associated with auto correlation when our residuals do not look like uncorrelated white noise, but instead have this low frequency structure.</p>
+
+			<p>Now we can actually plot those residuals. And I'll make a plot here. I go down to Model Residuals. And so I'm going to plot the residuals as a function of year. I no longer need a trend line here. And that's what we have.</p>
+
+			<p>So when we remove the trend-- we accounted for a statistically significant trend and when we removed that trend-- this is what was left over. These are the residuals. And they look pretty much like Gaussian random white noise, which is good. That means that the results of our regression are basically sound. We fulfilled the basic underlying assumptions that what's left over after we account for the significant trend in the data looks random.</p>
+		</div>
+	</div>
+</div>
+
+<p>You can play around with the temperature data set used in this example using the <a href="https://courseware.e-education.psu.edu/courses/meteo101/stat_plotting_tool.swf?filename=STCDecTemp.txt" onclick="window.open(this.href, '', 'resizable=no,status=no,location=no,toolbar=no,menubar=no,fullscreen=no,scrollbars=yes,dependent=no,width=800,height=800'); return false;">Linear Regression Tool</a></p>
+</div></div></div></div>  <div id="book-navigation-111" class="book-navigation">
+    
+        <div class="page-links clearfix">
+              <a href="123.html" class="page-previous" title="Go to previous page">‹ Review of Basic Statistical Analysis Methods for Analyzing Data - Part 1</a>
+                    <a href="118.html" class="page-up" title="Go to parent page">up</a>
+                    <a href="209.html" class="page-next" title="Go to next page">Review of Basic Statistical Analysis Methods for Analyzing Data - Part 3 ›</a>
+          </div>
+    
+  </div>
+  </div>
+  
+  <div class="clearfix">
+          <nav class="links node-links clearfix"></nav>
+    
+      </div>
+</article>    </div>
+  </div>
+</div>      </div>
+</div><aside class="grid-3 region region-sidebar-first" id="region-sidebar-first">
+  <div class="region-inner region-sidebar-first-inner">
+    <div class="block block-block block-7 block-block-7 odd block-without-title" id="block-block-7">
+  <div class="block-inner clearfix">
+                
+    <div class="content clearfix">
+      <div class="tex2jax"><div id="coursetitleright"><span class="coursenumber">METEO 469:</span> <span class="coursetitle">From Meteorology to Mitigation: Understanding Global Warming</span></div>
+</div>    </div>
+  </div>
+</div><div class="block block-search block-form block-search-form even block-without-title" id="block-search-form">
+  <div class="block-inner clearfix">
+                
+    <div class="content clearfix">
+      <form action="https://www.e-education.psu.edu/meteo469/node/208" method="post" id="search-block-form" accept-charset="UTF-8"><div><div class="container-inline">
+      <h2 class="element-invisible">Search form</h2>
+    <div class="form-item form-type-textfield form-item-search-block-form">
+  <label class="element-invisible" for="edit-search-block-form--2">Search </label>
+ <input title="Enter the terms you wish to search for." type="text" id="edit-search-block-form--2" name="search_block_form" value="" size="15" maxlength="128" class="form-text" />
+</div>
+<div class="form-actions form-wrapper" id="edit-actions"><input type="submit" id="edit-submit" name="op" value="Search" class="form-submit" /></div><input type="hidden" name="form_build_id" value="form-nyUNIvf28Q7e60PVWOo398SHDJ_G3hLIFfRe1q1OHLY" />
+<input type="hidden" name="form_id" value="search_block_form" />
+</div>
+</div></form>    </div>
+  </div>
+</div><section class="block block-menu-block block-4 block-menu-block-4 odd" id="block-menu-block-4">
+  <div class="block-inner clearfix">
+              <h2 class="block-title">Lessons</h2>
+            
+    <div class="content clearfix">
+      <div class="menu-block-wrapper menu-block-4 menu-name-book-toc-111 parent-mlid-1313 menu-level-1">
+  <ul class="menu"><li class="first collapsed menu-mlid-1314"><a href="112.html">Lesson 1- Introduction to Climate and Climate Change</a></li>
+<li class="expanded active-trail menu-mlid-1320"><a href="118.html" class="active-trail">Lesson 2 - Climate Observations, part 1</a><ul class="menu"><li class="first leaf menu-mlid-2931"><a href="249.html">Introduction</a></li>
+<li class="leaf menu-mlid-1321"><a href="119.html">Observed Changes in Greenhouse Gases</a></li>
+<li class="leaf menu-mlid-1322"><a href="120.html">Modern Surface Temperature Trends</a></li>
+<li class="leaf menu-mlid-1323"><a href="121.html">Vertical Temperature Trends</a></li>
+<li class="leaf menu-mlid-1324"><a href="122.html">Historical Variations in Precipitation and Drought</a></li>
+<li class="leaf menu-mlid-1325"><a href="123.html">Review of Basic Statistical Analysis Methods for Analyzing Data - Part 1</a></li>
+<li class="leaf active-trail active menu-mlid-1621"><a href="208.html" class="active-trail active">Review of Basic Statistical Analysis Methods for Analyzing Data - Part 2</a></li>
+<li class="leaf menu-mlid-1622"><a href="209.html">Review of Basic Statistical Analysis Methods for Analyzing Data - Part 3</a></li>
+<li class="leaf menu-mlid-1328"><a href="126.html">Problem Set #1</a></li>
+<li class="last leaf menu-mlid-1326"><a href="124.html">Lesson 2 Summary</a></li>
+</ul></li>
+<li class="collapsed menu-mlid-1330"><a href="128.html" class="">Lesson 3 - Climate Observations, part 2</a></li>
+<li class="collapsed menu-mlid-1337"><a href="135.html" class="">Lesson 4 - Modeling of the Climate System, part 1</a></li>
+<li class="collapsed menu-mlid-1341"><a href="139.html" class="">Lesson 5 - Modeling of the Climate System, part 2</a></li>
+<li class="collapsed menu-mlid-1346"><a href="144.html" class="">Lesson 6 - Carbon Emission Scenarios</a></li>
+<li class="collapsed menu-mlid-1351"><a href="149.html" class="">Lesson 7 - Projected Climate Changes, part 1</a></li>
+<li class="collapsed menu-mlid-1357"><a href="155.html" class="">Lesson 8 - Projected Climate Changes, part 2</a></li>
+<li class="collapsed menu-mlid-1366"><a href="164.html" class="">Lesson 9 - Climate Change Impacts</a></li>
+<li class="collapsed menu-mlid-1376"><a href="174.html" class="">Lesson 10 - Vulnerability and Adaptation to Climate Change</a></li>
+<li class="collapsed menu-mlid-1380"><a href="178.html" class="">Lesson 11 - Geoengineering</a></li>
+<li class="last collapsed menu-mlid-1387"><a href="185.html" class="">Lesson 12 - Reducing Greenhouse Gas Emissions</a></li>
+</ul></div>
+    </div>
+  </div>
+</section>  </div>
+</aside>  </div>
+</div></section>    
+  
+      <footer id="section-footer" class="section section-footer">
+  <div id="zone-course-footer-wrapper" class="zone-wrapper zone-course-footer-wrapper clearfix">  
+  <div id="zone-course-footer" class="zone zone-course-footer clearfix container-12">
+    <div class="grid-12 region region-footer-first" id="region-footer-first">
+  <div class="region-inner region-footer-first-inner">
+    <div class="block block-block block-3 block-block-3 odd block-without-title" id="block-block-3">
+  <div class="block-inner clearfix">
+                
+    <div class="content clearfix">
+      <div class="tex2jax"><div class="clearfix" id="course_footer">
+	<p class="author">Authors: Michael Mann, Professor of Meteorology, Department of Meteorology, College of Earth and Mineral Sciences, The Pennsylvania State University.<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Brian Gaudet, Assistant Research Professor, Department of Meteorology, College of Earth and Mineral Sciences, The Pennsylvania State University.</p>
+
+	<p class="author">Instructor: Sonya Miller, Researcher, Department of Meteorology, College of Earth and Mineral Sciences, The Pennsylvania State University.</p>
+
+	<p><p>This courseware module is part of Penn State's College of Earth and Mineral Sciences' <a href="http://open.ems.psu.edu/">OER Initiative</a>.</p>
+
+<p>Except where otherwise noted, content on this site is licensed under a <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
+
+<p>The College of Earth and Mineral Sciences is committed to making its websites accessible to all users, and welcomes comments or suggestions on access improvements. Please send comments or suggestions on accessibility to the <a href="mailto:editor@e-education.psu.edu?subject=Question/Feedback for METEO 469">site editor</a>. The site editor may also be contacted with questions or comments about this Open Educational Resource.</p>
+</p>
+</div>
+
+<p></p>
+</div>    </div>
+  </div>
+</div>  </div>
+</div>  </div>
+</div><div id="zone-dutton-footer-wrapper" class="zone-wrapper zone-dutton-footer-wrapper clearfix">  
+  <div id="zone-dutton-footer" class="zone zone-dutton-footer clearfix container-12">
+    <div class="grid-12 region region-footer-second" id="region-footer-second">
+  <div class="region-inner region-footer-second-inner">
+    <div class="block block-block block-4 block-block-4 odd block-without-title" id="block-block-4">
+  <div class="block-inner clearfix">
+                
+    <div class="content clearfix">
+      <div class="tex2jax"><div class="clearfix" id="dutton_footer">
+	<div class="col1"><a href="http://www.e-education.psu.edu/"><img alt="John A. Dutton e-Education Institute" src="../../library/sites/www.e-education.psu.edu.library/files/dutton_logo_revised.png" /></a>
+		<p>The John A. Dutton e-Education Institute is the learning design unit of the <a href="http://www.ems.psu.edu/">College of Earth and Mineral Sciences</a> at <a href="http://www.psu.edu/">The Pennsylvania State University</a>.</p>
+	</div>
+
+	<div class="col2">
+		<h3>Navigation</h3>
+
+		<ul><li><a href="http://www.e-education.psu.edu/">Home</a></li>
+			<li><a href="http://www.e-education.psu.edu/news">News</a></li>
+			<li><a href="http://www.e-education.psu.edu/about">About</a></li>
+			<li><a href="http://www.e-education.psu.edu/contact">Contact Us</a></li>
+			<li><a href="http://www.e-education.psu.edu/node/4">Programs and Courses</a></li>
+			<li><a href="http://www.e-education.psu.edu/node/3">People</a></li>
+			<li><a href="http://www.e-education.psu.edu/node/5">Resources</a></li>
+			<li><a href="http://www.e-education.psu.edu/node/6">Services</a></li>
+			<li><a href="https://www.e-education.psu.edu/meteo469/user">Login</a></li>
+		</ul></div>
+
+	<div class="col3">
+		<h3>EMS</h3>
+
+		<ul><li><a href="http://www.ems.psu.edu/">College of Earth and Mineral Sciences</a></li>
+			<li><a href="http://www.eme.psu.edu/">Department of Energy and Mineral Engineering</a></li>
+			<li><a href="http://www.geog.psu.edu/">Department of Geography</a></li>
+			<li><a href="http://www.geosc.psu.edu/">Department of Geosciences</a></li>
+			<li><a href="http://www.matse.psu.edu/">Department of Materials Science and Engineering</a></li>
+			<li><a href="http://www.met.psu.edu/">Department of Meteorology and Atmospheric Science</a></li>
+			<li><a href="http://www.eesi.psu.edu/">Earth and Environmental Systems Institute</a></li>
+			<li><a href="http://www.energy.psu.edu/">Energy Institute</a></li>
+			<li><a href="http://www.iee.psu.edu/ingar">Institute for National Gas Research</a></li>
+		</ul></div>
+
+	<div class="col4">
+		<h3>Programs</h3>
+
+		<ul><li><a href="http://gis.e-education.psu.edu/">Online Geospatial Education Programs</a></li>
+			<li><a href="http://ress.psu.edu/">iMPS in Renewable Energy and Sustainability Policy Program Office</a></li>
+			<li><a href="http://esp.e-education.psu.edu/">BA in Energy and Sustainability Policy Program Office</a></li>
+			<li><a href="http://earth.e-education.psu.edu/">M.Ed. in Earth Sciences Program Office</a></li>
+		</ul></div>
+
+	<div class="col5">
+		<h3>Related Links</h3>
+
+		<ul><li><a href="https://www.yammer.com/psu.edu/#/threads/inGroup?type=in_group&amp;feedId=1099225">Dutton Community Yammer Group</a></li>
+			<li><a href="http://dlc.psu.edu/">Penn State Digital Learning Cooperative</a></li>
+			<li><a href="http://www.worldcampus.psu.edu/">Penn State World Campus</a></li>
+			<li><a href="https://weblearning.psu.edu/">Web Learning @ Penn State</a></li>
+		</ul></div>
+</div>
+
+<p></p>
+<style id="8777" type="text/css">
+<!--/*--><![CDATA[/* ><!--*/
+@namespace url(http://www.w3.org/1999/xhtml);
+
+/*--><!]]>*/
+</style><style id="3179" type="text/css">
+<!--/*--><![CDATA[/* ><!--*/
+@namespace url(http://www.w3.org/1999/xhtml);
+
+/*--><!]]>*/
+</style><style id="8727" type="text/css">
+<!--/*--><![CDATA[/* ><!--*/
+@namespace url(http://www.w3.org/1999/xhtml);
+
+/*--><!]]>*/
+</style></div>    </div>
+  </div>
+</div>  </div>
+</div>  </div>
+</div><div id="zone-penn-state-footer-wrapper" class="zone-wrapper zone-penn-state-footer-wrapper clearfix">  
+  <div id="zone-penn-state-footer" class="zone zone-penn-state-footer clearfix container-12">
+    <div class="grid-1 region region-footer-third" id="region-footer-third">
+  <div class="region-inner region-footer-third-inner">
+    <div class="block block-block block-5 block-block-5 odd block-without-title" id="block-block-5">
+  <div class="block-inner clearfix">
+                
+    <div class="content clearfix">
+      <div class="tex2jax"><div class="clearfix" id="psu_footer">
+	<div class="col1"><a href="http://www.psu.edu/"><img alt="Penn State home page" src="../../library/sites/www.e-education.psu.edu.library/files/psu_logo.png" style="width: 135px; height: 61px;" /></a></div>
+
+	<div class="col2">
+		<p><a href="https://goo.gl/maps/9SC1XJVPTqD2">2217 Earth and Engineering Sciences Building, University Park, Pennsylvania 16802</a><br /><a href="http://www.psu.edu/contact-us">Contact Us</a></p>
+	</div>
+
+	<div class="col3">
+		<p><a href="http://www.psu.edu/web-privacy-statement">Privacy &amp; Legal Statements</a> | <a href="http://www.psu.edu/copyright-information">Copyright Information</a><br />
+			The Pennsylvania State University © 2018</p>
+	</div>
+</div>
+</div>    </div>
+  </div>
+</div>  </div>
+</div>  </div>
+</div></footer>  </div>  </body>
+
+<!-- Mirrored from www.e-education.psu.edu/meteo469/node/208 by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 29 Jan 2019 19:47:36 GMT -->
+</html>

@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<!-- Mirrored from www.e-education.psu.edu/meteo3/l2_p6.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 08 Nov 2018 20:14:17 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Generator" content="Drupal 7 (http://drupal.org)" />
+<link rel="canonical" href="l2_p6.html" />
+<link rel="shortlink" href="https://www.e-education.psu.edu/meteo3/node/1960" />
+<link rel="prev" href="l2_p5.html" />
+<link rel="up" href="l2.html" />
+<link rel="next" href="l2_p7.html" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+  <title>Creating an Energy Budget: Part II | METEO 3: Introductory Meteorology</title>  
+  <style type="text/css" media="all">
+@import url("modules/system/system.base48f3.css?ph0le5");
+@import url("modules/system/system.menus48f3.css?ph0le5");
+@import url("modules/system/system.messages48f3.css?ph0le5");
+@import url("modules/system/system.theme48f3.css?ph0le5");
+</style>
+<style type="text/css" media="screen">
+@import url("sites/all/modules/iconizer/files_icons48f3.css?ph0le5");
+@import url("sites/all/modules/iconizer/proto_icons48f3.css?ph0le5");
+</style>
+<style type="text/css" media="all">
+@import url("modules/book/book48f3.css?ph0le5");
+@import url("modules/comment/comment48f3.css?ph0le5");
+@import url("modules/field/theme/field48f3.css?ph0le5");
+@import url("modules/node/node48f3.css?ph0le5");
+@import url("modules/search/search48f3.css?ph0le5");
+@import url("modules/user/user48f3.css?ph0le5");
+@import url("sites/all/modules/extlink/extlink48f3.css?ph0le5");
+@import url("sites/all/modules/views/css/views48f3.css?ph0le5");
+</style>
+<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata:regular,700&amp;subset=latin-ext" media="all" />
+<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,regular,600,700&amp;subset=latin-ext" media="all" />
+<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif&amp;subset=latin-ext" media="all" />
+<style type="text/css" media="all">
+@import url("sites/all/modules/hidden_nodes/hidden_nodes48f3.css?ph0le5");
+@import url("sites/all/modules/ctools/css/ctools48f3.css?ph0le5");
+@import url("sites/all/modules/lightbox2/css/lightbox48f3.css?ph0le5");
+@import url("sites/all/modules/print/print_ui/css/print_ui.theme48f3.css?ph0le5");
+@import url("sites/all/modules/responsive_menus/styles/responsive_menus_simple/css/responsive_menus_simple48f3.css?ph0le5");
+@import url("sites/all/libraries/superfish/css/superfish48f3.css?ph0le5");
+</style>
+<style type="text/css" media="print">
+@import url("sites/all/themes/meteo/print48f3.css?ph0le5");
+</style>
+<style type="text/css" media="all">
+@import url("sites/all/themes/omega/alpha/css/alpha-reset48f3.css?ph0le5");
+@import url("sites/all/themes/omega/alpha/css/alpha-mobile48f3.css?ph0le5");
+@import url("sites/all/themes/omega/alpha/css/alpha-alpha48f3.css?ph0le5");
+@import url("sites/all/themes/omega/omega/css/formalize48f3.css?ph0le5");
+@import url("sites/all/themes/omega/omega/css/omega-text48f3.css?ph0le5");
+@import url("sites/all/themes/omega/omega/css/omega-branding48f3.css?ph0le5");
+@import url("sites/all/themes/omega/omega/css/omega-menu48f3.css?ph0le5");
+@import url("sites/all/themes/omega/omega/css/omega-forms48f3.css?ph0le5");
+@import url("sites/all/themes/omega/omega/css/omega-visuals48f3.css?ph0le5");
+@import url("sites/all/themes/meteo/css/global48f3.css?ph0le5");
+</style>
+
+<!--[if (lt IE 9)&(!IEMobile)]>
+<style type="text/css" media="all">
+@import url("https://www.e-education.psu.edu/meteo3/sites/all/themes/meteo/css/meteo-alpha-default.css?ph0le5");
+@import url("https://www.e-education.psu.edu/meteo3/sites/all/themes/meteo/css/meteo-alpha-default-normal.css?ph0le5");
+@import url("https://www.e-education.psu.edu/meteo3/sites/all/themes/omega/alpha/css/grid/alpha_default/normal/alpha-default-normal-12.css?ph0le5");
+</style>
+<![endif]-->
+
+<!--[if gte IE 9]><!-->
+<style type="text/css" media="all and (min-width: 740px) and (min-device-width: 740px), (max-device-width: 800px) and (min-width: 740px) and (orientation:landscape)">
+@import url("sites/all/themes/meteo/css/meteo-alpha-default48f3.css?ph0le5");
+@import url("sites/all/themes/meteo/css/meteo-alpha-default-narrow48f3.css?ph0le5");
+@import url("sites/all/themes/omega/alpha/css/grid/alpha_default/narrow/alpha-default-narrow-1248f3.css?ph0le5");
+</style>
+<!--<![endif]-->
+
+<!--[if gte IE 9]><!-->
+<style type="text/css" media="all and (min-width: 980px) and (min-device-width: 980px), all and (max-device-width: 1024px) and (min-width: 1024px) and (orientation:landscape)">
+@import url("sites/all/themes/meteo/css/meteo-alpha-default48f3.css?ph0le5");
+@import url("sites/all/themes/meteo/css/meteo-alpha-default-normal48f3.css?ph0le5");
+@import url("sites/all/themes/omega/alpha/css/grid/alpha_default/normal/alpha-default-normal-1248f3.css?ph0le5");
+</style>
+<!--<![endif]-->
+  <script type="text/javascript" src="misc/jquery1cc4.js?v=1.4.4"></script>
+<script type="text/javascript" src="misc/jquery.once7839.js?v=1.2"></script>
+<script type="text/javascript" src="misc/drupal48f3.js?ph0le5"></script>
+<script type="text/javascript" src="sites/all/modules/extlink/extlink48f3.js?ph0le5"></script>
+<script type="text/javascript" src="sites/all/modules/lightbox2/js/lightbox48f3.js?ph0le5"></script>
+<script type="text/javascript" src="sites/all/modules/custom_js_libraries/printable_links/printable_links48f3.js?ph0le5"></script>
+<script type="text/javascript" src="sites/all/modules/custom_js_libraries/toggler/toggler48f3.js?ph0le5"></script>
+<script type="text/javascript" src="sites/all/modules/saveguard/saveguard48f3.js?ph0le5"></script>
+<script type="text/javascript" src="sites/all/modules/responsive_menus/styles/responsive_menus_simple/js/responsive_menus_simple48f3.js?ph0le5"></script>
+<script type="text/javascript" src="sites/all/modules/google_analytics/googleanalytics48f3.js?ph0le5"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","../../www.google-analytics.com/analytics.js","ga");ga("create", "UA-24504751-3", {"cookieDomain":"auto"});ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript" src="sites/all/libraries/superfish/jquery.hoverIntent.minified48f3.js?ph0le5"></script>
+<script type="text/javascript" src="sites/all/libraries/superfish/sfsmallscreen48f3.js?ph0le5"></script>
+<script type="text/javascript" src="sites/all/libraries/superfish/supposition48f3.js?ph0le5"></script>
+<script type="text/javascript" src="sites/all/libraries/superfish/superfish48f3.js?ph0le5"></script>
+<script type="text/javascript" src="sites/all/libraries/superfish/supersubs48f3.js?ph0le5"></script>
+<script type="text/javascript" src="sites/all/modules/superfish/superfish48f3.js?ph0le5"></script>
+<script type="text/javascript" src="sites/all/themes/omega/omega/js/jquery.formalize48f3.js?ph0le5"></script>
+<script type="text/javascript" src="sites/all/themes/omega/omega/js/omega-mediaqueries48f3.js?ph0le5"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/meteo3\/","pathPrefix":"","ajaxPageState":{"theme":"meteo","theme_token":"wA0ztX6iZjgRjD7jRgmiGAi_7p1ba87oIx2C66IpWpM","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/extlink\/extlink.js":1,"sites\/all\/modules\/lightbox2\/js\/lightbox.js":1,"sites\/all\/modules\/custom_js_libraries\/printable_links\/printable_links.js":1,"sites\/all\/modules\/custom_js_libraries\/toggler\/toggler.js":1,"sites\/all\/modules\/saveguard\/saveguard.js":1,"sites\/all\/modules\/responsive_menus\/styles\/responsive_menus_simple\/js\/responsive_menus_simple.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"0":1,"sites\/all\/libraries\/superfish\/jquery.hoverIntent.minified.js":1,"sites\/all\/libraries\/superfish\/sfsmallscreen.js":1,"sites\/all\/libraries\/superfish\/supposition.js":1,"sites\/all\/libraries\/superfish\/superfish.js":1,"sites\/all\/libraries\/superfish\/supersubs.js":1,"sites\/all\/modules\/superfish\/superfish.js":1,"sites\/all\/themes\/omega\/omega\/js\/jquery.formalize.js":1,"sites\/all\/themes\/omega\/omega\/js\/omega-mediaqueries.js":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"sites\/all\/modules\/iconizer\/files_icons.css":1,"sites\/all\/modules\/iconizer\/files_icons-override.css":1,"sites\/all\/modules\/iconizer\/proto_icons.css":1,"modules\/book\/book.css":1,"modules\/comment\/comment.css":1,"modules\/field\/theme\/field.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/extlink\/extlink.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"https:\/\/fonts.googleapis.com\/css?family=Inconsolata:regular,700\u0026subset=latin-ext":1,"https:\/\/fonts.googleapis.com\/css?family=Open+Sans:300,regular,600,700\u0026subset=latin-ext":1,"https:\/\/fonts.googleapis.com\/css?family=PT+Serif\u0026subset=latin-ext":1,"sites\/all\/modules\/hidden_nodes\/hidden_nodes.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"sites\/all\/modules\/lightbox2\/css\/lightbox.css":1,"sites\/all\/modules\/print\/print_ui\/css\/print_ui.theme.css":1,"sites\/all\/modules\/responsive_menus\/styles\/responsive_menus_simple\/css\/responsive_menus_simple.css":1,"sites\/all\/libraries\/superfish\/css\/superfish.css":1,"sites\/all\/themes\/meteo\/print.css":1,"public:\/\/google_fonts.css":1,"sites\/all\/themes\/omega\/alpha\/css\/alpha-reset.css":1,"sites\/all\/themes\/omega\/alpha\/css\/alpha-mobile.css":1,"sites\/all\/themes\/omega\/alpha\/css\/alpha-alpha.css":1,"sites\/all\/themes\/omega\/omega\/css\/formalize.css":1,"sites\/all\/themes\/omega\/omega\/css\/omega-text.css":1,"sites\/all\/themes\/omega\/omega\/css\/omega-branding.css":1,"sites\/all\/themes\/omega\/omega\/css\/omega-menu.css":1,"sites\/all\/themes\/omega\/omega\/css\/omega-forms.css":1,"sites\/all\/themes\/omega\/omega\/css\/omega-visuals.css":1,"sites\/all\/themes\/meteo\/css\/global.css":1,"ie::normal::sites\/all\/themes\/meteo\/css\/meteo-alpha-default.css":1,"ie::normal::sites\/all\/themes\/meteo\/css\/meteo-alpha-default-normal.css":1,"ie::normal::sites\/all\/themes\/omega\/alpha\/css\/grid\/alpha_default\/normal\/alpha-default-normal-12.css":1,"narrow::sites\/all\/themes\/meteo\/css\/meteo-alpha-default.css":1,"narrow::sites\/all\/themes\/meteo\/css\/meteo-alpha-default-narrow.css":1,"sites\/all\/themes\/omega\/alpha\/css\/grid\/alpha_default\/narrow\/alpha-default-narrow-12.css":1,"normal::sites\/all\/themes\/meteo\/css\/meteo-alpha-default.css":1,"normal::sites\/all\/themes\/meteo\/css\/meteo-alpha-default-normal.css":1,"sites\/all\/themes\/omega\/alpha\/css\/grid\/alpha_default\/normal\/alpha-default-normal-12.css":1}},"lightbox2":{"rtl":0,"file_path":"\/meteo3\/(\\w\\w\/)public:\/","default_image":"\/meteo3\/sites\/all\/modules\/lightbox2\/images\/brokenimage.jpg","border_size":10,"font_color":"000","box_color":"fff","top_position":"","overlay_opacity":"0.8","overlay_color":"000","disable_close_click":true,"resize_sequence":0,"resize_speed":400,"fade_in_speed":400,"slide_down_speed":600,"use_alt_layout":false,"disable_resize":false,"disable_zoom":false,"force_show_nav":false,"show_caption":true,"loop_items":false,"node_link_text":"View Image Details","node_link_target":false,"image_count":"Image !current of !total","video_count":"Video !current of !total","page_count":"Page !current of !total","lite_press_x_close":"press \u003Ca href=\u0022#\u0022 onclick=\u0022hideLightbox(); return FALSE;\u0022\u003E\u003Ckbd\u003Ex\u003C\/kbd\u003E\u003C\/a\u003E to close","download_link_text":"","enable_login":false,"enable_contact":false,"keys_close":"c x 27","keys_previous":"p 37","keys_next":"n 39","keys_zoom":"z","keys_play_pause":"32","display_image_size":"original","image_node_sizes":"()","trigger_lightbox_classes":"","trigger_lightbox_group_classes":"","trigger_slideshow_classes":"","trigger_lightframe_classes":"","trigger_lightframe_group_classes":"","custom_class_handler":0,"custom_trigger_classes":"","disable_for_gallery_lists":true,"disable_for_acidfree_gallery_lists":true,"enable_acidfree_videos":true,"slideshow_interval":5000,"slideshow_automatic_start":true,"slideshow_automatic_exit":true,"show_play_pause":true,"pause_on_next_click":false,"pause_on_previous_click":true,"loop_slides":false,"iframe_width":600,"iframe_height":400,"iframe_border":1,"enable_video":false,"useragent":"Mozilla\/4.5 (compatible; HTTrack 3.0x; Windows 98)"},"saveguard":{"msg":null},"responsive_menus":[{"toggler_text":"\u2630 Menu","selectors":["#superfish-1"],"media_size":"720","media_unit":"px","absolute":true,"remove_attributes":true,"responsive_menus_style":"responsive_menus_simple"}],"extlink":{"extTarget":"_blank","extClass":"ext","extLabel":"(link is external)","extImgClass":0,"extIconPlacement":"append","extSubdomains":0,"extExclude":"","extInclude":"","extCssExclude":"","extCssExplicit":"","extAlert":0,"extAlertText":"This link will take you to an external web site. We are not responsible for their content.","mailtoClass":0,"mailtoLabel":"(link sends e-mail)"},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"},"superfish":{"1":{"id":"1","sf":{"delay":"0","animation":{"opacity":"show","height":"show"},"speed":"\u0027fast\u0027","autoArrows":false,"dropShadows":false,"disableHI":false},"plugins":{"smallscreen":{"mode":"window_width","addSelected":false,"menuClasses":false,"hyperlinkClasses":false,"title":"Main menu"},"supposition":true,"bgiframe":false,"supersubs":{"minWidth":"12","maxWidth":"27","extraWidth":1}}}},"urlIsAjaxTrusted":{"\/meteo3\/l2_p6.html":true},"omega":{"layouts":{"primary":"normal","order":["narrow","normal"],"queries":{"narrow":"all and (min-width: 740px) and (min-device-width: 740px), (max-device-width: 800px) and (min-width: 740px) and (orientation:landscape)","normal":"all and (min-width: 980px) and (min-device-width: 980px), all and (max-device-width: 1024px) and (min-width: 1024px) and (orientation:landscape)"}}}});
+//--><!]]>
+</script>
+  <!--[if lt IE 9]><script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+<body class="html not-front not-logged-in page-node page-node- page-node-1960 node-type-page context-l2-p6html">
+  <div id="skip-link">
+    <a href="#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    
+
+<div class="page clearfix" id="page">
+      <header id="section-header" class="section section-header">
+  <div id="zone-branding-wrapper" class="zone-wrapper zone-branding-wrapper clearfix">  
+  <div id="zone-branding" class="zone zone-branding clearfix container-12">
+    <div class="grid-12 region region-branding" id="region-branding">
+  <div class="region-inner region-branding-inner">
+        <div class="block block-block block-6 block-block-6 odd block-without-title" id="block-block-6">
+  <div class="block-inner clearfix">
+                
+    <div class="content clearfix">
+      <div class="course-title-container">
+	<table>
+		<tbody>
+			<tr>
+				<td><span class="course-title">METEO 3</span><br>
+					<span class="course-name"> Introductory Meteorology</span></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<p><a href="http://www.meteo.psu.edu/" id="dept"><span class="hidden">Meteorology Department</span></a> <a href="http://www.psu.edu/" id="psu"><span class="hidden">Penn State</span></a></p>
+    </div>
+  </div>
+</div>  </div>
+</div>  </div>
+</div><div id="zone-menu-wrapper" class="zone-wrapper zone-menu-wrapper clearfix">  
+  <div id="zone-menu" class="zone zone-menu clearfix container-12">
+    <div class="grid-12 region region-menu" id="region-menu">
+  <div class="region-inner region-menu-inner">
+        <div class="block block-superfish block-1 block-superfish-1 odd block-without-title" id="block-superfish-1">
+  <div class="block-inner clearfix">
+                
+    <div class="content clearfix">
+      <ul id="superfish-1" class="menu sf-menu sf-main-menu sf-horizontal sf-style-none sf-total-items-6 sf-parent-items-0 sf-single-items-6"><li id="menu-4272-1" class="first odd sf-item-1 sf-depth-1 sf-no-children"><a href="index.html" class="sf-depth-1">HOME</a></li><li id="menu-4277-1" class="middle even sf-item-2 sf-depth-1 sf-no-children"><a href="syllabus.html" class="sf-depth-1">SYLLABUS</a></li><li id="menu-4275-1" class="middle odd sf-item-3 sf-depth-1 sf-no-children"><a href="orientation.html" class="sf-depth-1">ORIENTATION</a></li><li id="menu-4276-1" class="middle even sf-item-4 sf-depth-1 sf-no-children"><a href="node/1940.html" class="sf-depth-1">LESSONS</a></li><li id="menu-4279-1" class="middle odd sf-item-5 sf-depth-1 sf-no-children"><a href="node/2257.html" class="sf-depth-1">GETTING HELP</a></li><li id="menu-4274-1" class="last even sf-item-6 sf-depth-1 sf-no-children"><a href="https://www.e-education.psu.edu/meteo3/login" class="sf-depth-1">LOGIN</a></li></ul>    </div>
+  </div>
+</div>  </div>
+</div>
+  </div>
+</div></header>    
+      <section id="section-content" class="section section-content">
+  <div id="zone-content-wrapper" class="zone-wrapper zone-content-wrapper clearfix">  
+  <div id="zone-content" class="zone zone-content clearfix container-12">    
+        
+        <div class="grid-9 region region-content" id="region-content">
+  <div class="region-inner region-content-inner">
+    <a id="main-content"></a>
+                <h1 class="title" id="page-title">Creating an Energy Budget: Part II</h1>
+                        <div class="block block-system block-main block-system-main odd block-without-title" id="block-system-main">
+  <div class="block-inner clearfix">
+                
+    <div class="content clearfix">
+      
+
+
+<article class="node node-page node-published node-not-promoted node-not-sticky author-david-babb odd clearfix" id="node-page-1960">
+    
+
+  
+
+  
+    
+
+  
+
+  <div class="content clearfix">
+    
+      <div id="book-navigation-1940" class="book-navigation">
+
+
+    
+        <div class="page-links clearfix">
+
+              <a href="l2_p5.html" class="page-previous" title="Go to previous page">‹ Creating an Energy Budget: Part I</a>
+      
+
+
+
+
+              <a href="l2_p7.html" class="page-next" title="Go to next page">The &quot;Greenhouse Effect,&quot; and Global Warming ›</a>
+      
+
+    </div>
+    
+  </div>
+
+    <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even"><div class="box-prioritize">
+	<h3 class="header-prioritize">Prioritize...</h3>
+
+	<p>By the end of this section, you should be able to discuss upwelling infrared radiation, and what controls its magnitude. You should also be able to complete an energy budget calculation as shown and assess whether temperature would increase, decrease or stay the same based on the result of the calculation.</p>
+</div>
+
+<div class="box-read">
+	<h3 class="header-read">Read...</h3>
+
+	<p>Before we complete our radiation-based energy budget, let's quickly review some basics. It's the net gain or loss of radiation that determines whether temperature will increase or decrease, based on this calculation:</p>
+
+	<p style="text-align: center;"><strong><em>net gain or loss of radiation = downwelling radiation - upwelling radiation</em></strong></p>
+
+	<p>So far, we've covered our important sources of downwelling radiation: downwelling solar and downwelling infrared (from atmospheric gases and clouds). So, we can rewrite our simple radiation-based energy budget like this:</p>
+
+	<p style="text-align: center;"><strong><em>net gain or loss of radiation = downwelling solar + downwelling IR - upwelling radiation</em></strong><br>
+		&nbsp;</p>
+
+	<p>Now we just need to tackle that last piece of the puzzle--upwelling radiation.<strong><em> </em></strong>As it turns out, the main source of upwelling radiation that we need to consider is upwelling infrared radiation from the earth's surface. Let's explore.</p>
+
+	<h4>Upwelling Infrared Radiation</h4>
+
+	<p>You may have heard a weathercaster say something along the lines of "conditions are great for radiational cooling tonight." Often, if they try to explain that process, they'll say something like, "When the sun goes down, the Earth's surface begins to emit IR radiation to space." But, that's not quite right. Remember Planck's Law: all objects emit radiation at all wavelengths <em>at all times</em>. This means that <em>the ground is <strong>always</strong> emitting infrared radiation</em>, and the amount of upwelling IR from the ground depends on its temperature. For example, on a chilly winter morning you could expect an upwelling IR value below 300 Watts per square meter, while on a hot summer's day you might see values exceeding 500 Watts per square meter. To see an example, consider the "upwelling infrared" curve on the plot below from Penn State University March 11, 2012 (the same date as the plots on the previous page).</p>
+
+	<div class="image-center"><img alt="A plot showing the downwelling solar, downwelling IR, and upwelling IR radiation at a surface location." src="https://www.e-education.psu.edu/meteo3/sites/www.e-education.psu.edu.meteo3/files/images/lesson2/psu_solar_downIR_upIR_0311.png">
+		<div class="image-caption">A plot showing the downwelling solar (red line), downwelling IR (blue line), and upwelling IR (green line) radiation at Penn State University on March 11, 2012.</div>
+
+		<div class="image-credit">Credit: Earth System Research Laboratory</div>
+	</div>
+
+	<p>Remember that March 11, 2012 was a very sunny day at Penn State, and note that upwelling IR increases dramatically during the day as surface temperature rises, and then drops more slowly over the nighttime period as the surface temperature slowly cools. So, the ground actually tends to emit more IR radiation during the daytime, when the surface is hotter (and less at night, when the surface is cooler). In other words, any notion that the ground <em>starts</em> emitting IR radiation after the sun sets is nonsense.</p>
+
+	<p>Let's see how upwelling IR impacts our energy budget. Upwelling IR represents radiation leaving the surface of the Earth and therefore should be subtracted from our energy budget (much like expenses are subtracted from income in a household budget). Let's designate the surface's expense term: <em><strong>- upwelling IR</strong></em>.</p>
+
+	<h4>The Complete Budget</h4>
+
+	<p>If you combine the three terms of the surface energy budget, we get our final equation for the net gain or loss of radiation at the earth's surface:</p>
+
+	<p style="text-align: center;"><em><strong>net gain or loss of radiation = downwelling solar + downwelling IR - upwelling IR</strong></em></p>
+
+	<p>This simple equation can be used to get a rough idea of the temperature trend of the surface. For example, using the graph above, look at the values of the three components at 1800Z.&nbsp; Downwelling solar is about&nbsp; 800 Watts per square meter, downwelling IR is about: 270 Watts per square meter, and upwelling IR is about 410 Watts per square meter. Insert those values into our calculation and we get:</p>
+
+	<p style="text-align: center;"><em><strong>net gain or loss of radiation = 800 W/m<sup>2</sup> + 270 W/m<sup>2</sup> - 410 W/m<sup>2</sup></strong></em></p>
+
+	<p style="text-align: center;"><em><strong>net gain of radiation = 660 Watts per square meter</strong></em></p>
+
+	<p>Since this is a positive value, we have a net <em>gain</em> of radiation, and that means that temperature would be increasing at this time (the ground is warming because it's gaining energy overall). If we had a negative result, we would have a net loss of radiation, and the surface temperature would be decreasing (a final result of zero means there would be no net gain or loss, and temperature would remain the same).</p>
+
+	<p>Need another example? Take a look at the graph around 0600Z. That's nighttime at Penn State, so downwelling solar is 0 Watts per square meter. The downwelling IR is around 240 Watts per square meter and the upwelling IR is approximately 310 Watts per square meter. Using our budget equation, we have:</p>
+
+	<p style="text-align: center;"><em><strong>net gain or loss of radiation = 0 W/m<sup>2 </sup>+ 240 W/m<sup>2</sup> - 310 W/m<sup>2</sup></strong></em></p>
+
+	<p style="text-align: center;"><strong><em>net loss of radiation = -70 W/m<sup>2</sup></em></strong></p>
+
+	<p>Since the result is negative, we have a net <em>loss</em> of radiation, and that means temperature would be decreasing at this time (the ground is cooling because it's losing energy overall).</p>
+
+	<p>To see a couple more examples, watch this short video (4:47) I created, which summarizes energy budgets and walks through some energy budget calculations.</p>
+
+	<p style="text-align: center"><iframe allowfullscreen="" frameborder="0" height="315" src="http://www.youtube.com/embed/Y295IekkAUs?rel=0" width="420"></iframe></p>
+
+	<p><a href="https://www.e-education.psu.edu/meteo3/sites/www.e-education.psu.edu.meteo3/files/transcripts/surface_energy_budgets.docx" target="_blank">Video Transcript: Surface Energy Budgets</a></p>
+
+	<p>Of course, radiation isn't the only way that energy flows through the earth-atmosphere system, and it's certainly not the only controller of temperature. If only forecasting temperature was as easy as making a simple radiation-based energy budget! Still, weather forecasters must <em>consider</em> the local energy budget when thinking about temperature trends because it's an important piece of the puzzle. We'll start expanding our knowledge of other types of energy transfer and impacts on temperature soon, but up next we're going to apply your new knowledge about energy budgets to the "greenhouse effect" and global warming. Before you move on, however, check out the <em>Quiz Yourself</em> section below, which will allow you to test your understanding of energy budgets and the resulting impacts on temperature.</p>
+</div>
+
+<div class="box-quizyourself">
+	<h3 class="header-quizyourself">Quiz Yourself...</h3>
+
+	<p>The interactive calculator below will give you some more practice thinking about surface temperature trends based on a given energy budget (which you can adjust). To orient yourself, the surface temperature slider on the left controls the upwelling IR component, while the sun position slider controls the downwelling solar component. The sizes of the labeled arrows are proportional to the magnitude of the corresponding component of the energy budget (the downwelling solar arrow gets larger as the value of downwelling solar increases, for example). By hovering your mouse over the "Display surface Temperature Tendency" label, you can see a qualitative graph of the surface temperature trend.</p>
+
+	<p>If you want to complicate the problem, check the "Cloud Present" check box. For the cloud, you are allowed to change its height (high/cold versus low/warm) and its thickness (which impacts the downwelling solar). You will note that with the cloud added, you are able to vary the downwelling IR component as well. After you select a scenario, try to figure out whether the temperature will increase or decrease, and whether the change will be large or small (that's as specific as we can be since we're not dealing with numbers). You might also compare similar scenarios -- for example, look at the nighttime temperature trend with a low cloud versus no cloud. Try it out!</p>
+
+	<div class="image-center">
+		<div class="video-wrapper" style="padding-bottom: 56.25% !important;"><object data="https://www.e-education.psu.edu/meteo3/sites/www.e-education.psu.edu.meteo3/files/flash/surf_rad0405.swf" type="application/x-shockwave-flash"><param name="allowFullScreen" value="false"><param name="scale" value="exactfit"><param name="quality" value="high"><param name="movie" value="https://www.e-education.psu.edu/meteo3/sites/www.e-education.psu.edu.meteo3/files/flash/surf_rad0405.swf"></object></div>
+
+		<div class="image-caption">Test your knowledge of radiation budgets. First adjust the solar, IR-up, and IR down components and then try to figure out what the temperature response would be. Check your answer by moving your mouse over the "Check Surface Temperature Tendency" icon.</div>
+
+		<div class="image-credit">Credit: David Babb</div>
+	</div>
+</div>
+</div></div></div>
+      <div id="book-navigation-1940" class="book-navigation">
+
+
+    
+        <div class="page-links clearfix">
+
+              <a href="l2_p5.html" class="page-previous" title="Go to previous page">‹ Creating an Energy Budget: Part I</a>
+      
+
+
+
+
+              <a href="l2_p7.html" class="page-next" title="Go to next page">The &quot;Greenhouse Effect,&quot; and Global Warming ›</a>
+      
+
+    </div>
+    
+  </div>
+
+
+  </div>
+  
+  <div class="clearfix">
+          <nav class="links node-links clearfix"><ul class="links inline"><li class="book_printer first last"><a href="https://www.e-education.psu.edu/meteo3/print/book/export/html/1960" title="Display a printer-friendly version of this page." class="print-page" rel="nofollow"><img class="print-icon print-icon-margin" src="sites/all/modules/print/icons/print_icon.png" width="16px" height="16px" alt="Print" title="Print" />Print</a></li></ul></nav>
+    
+      </div>
+</article>
+    </div>
+  </div>
+</div>      </div>
+</div><aside class="grid-3 region region-sidebar-first" id="region-sidebar-first">
+  <div class="region-inner region-sidebar-first-inner">
+    
+<div class="block block-block block-7 block-block-7 odd block-without-title" id="block-block-7"><div class="block-inner clearfix"><div class="content clearfix"><div id="coursetitleright"><span class="coursenumber">METEO 3</span> <span class="coursetitle"> Introductory Meteorology</span></div>
+</div></div></div>
+
+
+
+
+
+
+
+<section class="block block-menu-block block-10 block-menu-block-10 even" id="block-menu-block-10"><div class="block-inner clearfix"><h2 class="block-title">Lessons</h2><div class="content clearfix"><div class="menu-block-wrapper menu-block-10 menu-name-book-toc-1940 parent-mlid-284 menu-level-1">
+  <ul class="menu"><li class="first collapsed menu-mlid-390"><a href="l1.html">Lesson 1: A Meteorologist&#039;s Toolbox</a></li>
+<li class="expanded active-trail menu-mlid-379"><a href="l2.html" class="active-trail">Lesson 2:  The Global Ledger of Heat Energy</a><ul class="menu"><li class="first leaf menu-mlid-386"><a href="l2_p2.html">Shedding Light on the Electromagnetic Spectrum</a></li>
+<li class="leaf menu-mlid-388"><a href="l2_p3.html">The Four Laws of Radiation</a></li>
+<li class="leaf menu-mlid-382"><a href="l2_p4.html">The Roads Traveled Most By Radiation</a></li>
+<li class="leaf menu-mlid-385"><a href="l2_p5.html">Creating an Energy Budget: Part I</a></li>
+<li class="leaf active-trail active menu-mlid-381"><a href="l2_p6.html" class="active-trail active">Creating an Energy Budget: Part II</a></li>
+<li class="leaf menu-mlid-384"><a href="l2_p7.html">The &quot;Greenhouse Effect,&quot; and Global Warming</a></li>
+<li class="leaf menu-mlid-383"><a href="l2_p8.html">Energy Transfer: Conduction</a></li>
+<li class="leaf menu-mlid-380"><a href="l2_p9.html">Energy Transfer: Convection</a></li>
+<li class="last leaf menu-mlid-4375"><a href="l2_p10.html">Clouds Do Not &quot;Act Like Blankets&quot;</a></li>
+</ul></li>
+<li class="collapsed menu-mlid-367"><a href="l3.html">Lesson 3: Global and Local Controllers of Temperature</a></li>
+<li class="collapsed menu-mlid-357"><a href="l4.html">Lesson 4: The Role of Water in Weather</a></li>
+<li class="collapsed menu-mlid-348"><a href="l5.html">Lesson 5: Remote Sensing of the Atmosphere</a></li>
+<li class="collapsed menu-mlid-338"><a href="l6.html">Lesson 6: Surface Patterns of Pressure and Wind</a></li>
+<li class="collapsed menu-mlid-329"><a href="l7.html">Lesson 7: Mid-Latitude Weather Systems</a></li>
+<li class="collapsed menu-mlid-323"><a href="l8.html">Lesson 8: The Role of Stability in Thunderstorm Formation</a></li>
+<li class="collapsed menu-mlid-313"><a href="l9.html">Lesson 9: Severe Weather</a></li>
+<li class="collapsed menu-mlid-300"><a href="l10.html">Lesson 10:  The Human Impact on Weather and Climate</a></li>
+<li class="collapsed menu-mlid-292"><a href="l11.html">Lesson 11: Patterns of Wind, Water, and Weather in the Tropics</a></li>
+<li class="collapsed menu-mlid-285"><a href="l12.html">Lesson 12: Hurricanes</a></li>
+<li class="last collapsed menu-mlid-4461"><a href="l13.html">Lesson 13: Becoming a Savvy Weather Consumer</a></li>
+</ul></div>
+</div></div></section>
+
+
+
+
+
+
+
+<div class="block block-search block-form block-search-form odd block-without-title" id="block-search-form"><div class="block-inner clearfix"><div class="content clearfix"><form action="https://www.e-education.psu.edu/meteo3/l2_p6.html" method="post" id="search-block-form" accept-charset="UTF-8"><div><div class="container-inline">
+      <h2 class="element-invisible">Search form</h2>
+    <div class="form-item form-type-textfield form-item-search-block-form">
+  <label class="element-invisible" for="edit-search-block-form--2">Search </label>
+ <input title="Enter the terms you wish to search for." type="text" id="edit-search-block-form--2" name="search_block_form" value="" size="15" maxlength="128" class="form-text" />
+</div>
+<div class="form-actions form-wrapper" id="edit-actions"><input type="submit" id="edit-submit" name="op" value="Search" class="form-submit" /></div><input type="hidden" name="form_build_id" value="form-UTcMqYjl8Qd90CcDeU-VxlbLhHmTGssAPvzuOwuC_X8" />
+<input type="hidden" name="form_id" value="search_block_form" />
+</div>
+</div></form></div></div></div>
+
+
+
+
+
+
+  </div>
+</aside>  </div>
+</div></section>    
+  
+  
+
+    <footer id="section-footer" class="section section-footer">
+  <div id="zone-course-footer-wrapper" class="zone-wrapper zone-course-footer-wrapper clearfix">  
+  <div id="zone-course-footer" class="zone zone-course-footer clearfix container-12">
+    <div class="grid-12 region region-footer-first" id="region-footer-first">
+  <div class="region-inner region-footer-first-inner">
+    <div class="block block-block block-3 block-block-3 odd block-without-title" id="block-block-3">
+  <div class="block-inner clearfix">
+                
+    <div class="content clearfix">
+      <div class="clearfix" id="course_footer">
+	<p>Course Author: Steven Seman (Assistant Teaching Professor, Department of Meteorology and Atmospheric Science, College of Earth and Mineral Sciences,<br>
+		The Pennsylvania State University). Some portions adapted from original course materials by David Babb and Lee M. Grenci.</p>
+
+	<p>The College of Earth and Mineral Sciences is committed to making its websites accessible to all users, and welcomes comments or suggestions on access improvements. Please send comments or suggestions on accessibility to the <a href="mailto:editor@e-education.psu.edu?subject=Question/Feedback for METEO 3">site editor</a>. The site editor may also be contacted with questions or comments about this course.</p>
+</div>
+
+<p></p>
+    </div>
+  </div>
+</div>  </div>
+</div>  </div>
+</div><div id="zone-dutton-footer-wrapper" class="zone-wrapper zone-dutton-footer-wrapper clearfix">  
+  <div id="zone-dutton-footer" class="zone zone-dutton-footer clearfix container-12">
+    <div class="grid-12 region region-footer-second" id="region-footer-second">
+  <div class="region-inner region-footer-second-inner">
+    <div class="block block-block block-4 block-block-4 odd block-without-title" id="block-block-4">
+  <div class="block-inner clearfix">
+                
+    <div class="content clearfix">
+      <div class="clearfix" id="dutton_footer">
+	<div class="col1"><a href="../index.html"><img alt="John A. Dutton e-Education Institute" src="../library/sites/www.e-education.psu.edu.library/files/dutton_logo_revised.png" /></a>
+		<p>The John A. Dutton e-Education Institute is the learning design unit of the <a href="http://www.ems.psu.edu/">College of Earth and Mineral Sciences</a> at <a href="http://www.psu.edu/">The Pennsylvania State University</a>.</p>
+	</div>
+
+	<div class="col2">
+		<h3>Navigation</h3>
+
+		<ul><li><a href="../index.html">Home</a></li>
+			<li><a href="../news.html">News</a></li>
+			<li><a href="../about.html">About</a></li>
+			<li><a href="../contact.html">Contact Us</a></li>
+			<li><a href="../node/4.html">Programs and Courses</a></li>
+			<li><a href="../node/3.html">People</a></li>
+			<li><a href="../node/5.html">Resources</a></li>
+			<li><a href="../node/6.html">Services</a></li>
+			<li><a href="https://www.e-education.psu.edu/meteo3/user">Login</a></li>
+		</ul></div>
+
+	<div class="col3">
+		<h3>EMS</h3>
+
+		<ul><li><a href="http://www.ems.psu.edu/">College of Earth and Mineral Sciences</a></li>
+			<li><a href="http://www.eme.psu.edu/">Department of Energy and Mineral Engineering</a></li>
+			<li><a href="http://www.geog.psu.edu/">Department of Geography</a></li>
+			<li><a href="http://www.geosc.psu.edu/">Department of Geosciences</a></li>
+			<li><a href="http://www.matse.psu.edu/">Department of Materials Science and Engineering</a></li>
+			<li><a href="http://www.met.psu.edu/">Department of Meteorology and Atmospheric Science</a></li>
+			<li><a href="http://www.eesi.psu.edu/">Earth and Environmental Systems Institute</a></li>
+			<li><a href="http://www.energy.psu.edu/">Energy Institute</a></li>
+			<li><a href="http://www.iee.psu.edu/ingar">Institute for National Gas Research</a></li>
+		</ul></div>
+
+	<div class="col4">
+		<h3>Programs</h3>
+
+		<ul><li><a href="http://gis.e-education.psu.edu/">Online Geospatial Education Programs</a></li>
+			<li><a href="http://ress.psu.edu/">iMPS in Renewable Energy and Sustainability Policy Program Office</a></li>
+			<li><a href="http://esp.e-education.psu.edu/">BA in Energy and Sustainability Policy Program Office</a></li>
+			<li><a href="http://earth.e-education.psu.edu/">M.Ed. in Earth Sciences Program Office</a></li>
+		</ul></div>
+
+	<div class="col5">
+		<h3>Related Links</h3>
+
+		<ul><li><a href="https://www.yammer.com/psu.edu/#/threads/inGroup?type=in_group&amp;feedId=1099225">Dutton Community Yammer Group</a></li>
+			<li><a href="http://dlc.psu.edu/">Penn State Digital Learning Cooperative</a></li>
+			<li><a href="http://www.worldcampus.psu.edu/">Penn State World Campus</a></li>
+			<li><a href="https://weblearning.psu.edu/">Web Learning @ Penn State</a></li>
+		</ul></div>
+</div>
+
+<p></p>
+<style id="8777" type="text/css">
+<!--/*--><![CDATA[/* ><!--*/
+@namespace url(http://www.w3.org/1999/xhtml);
+
+/*--><!]]>*/
+</style><style id="3179" type="text/css">
+<!--/*--><![CDATA[/* ><!--*/
+@namespace url(http://www.w3.org/1999/xhtml);
+
+/*--><!]]>*/
+</style><style id="8727" type="text/css">
+<!--/*--><![CDATA[/* ><!--*/
+@namespace url(http://www.w3.org/1999/xhtml);
+
+/*--><!]]>*/
+</style>    </div>
+  </div>
+</div>  </div>
+</div>  </div>
+</div><div id="zone-penn-state-footer-wrapper" class="zone-wrapper zone-penn-state-footer-wrapper clearfix">  
+  <div id="zone-penn-state-footer" class="zone zone-penn-state-footer clearfix container-12">
+    <div class="grid-1 region region-footer-third" id="region-footer-third">
+  <div class="region-inner region-footer-third-inner">
+    <div class="block block-block block-5 block-block-5 odd block-without-title" id="block-block-5">
+  <div class="block-inner clearfix">
+                
+    <div class="content clearfix">
+      <div class="clearfix" id="psu_footer">
+	<div class="col1"><a href="http://www.psu.edu/"><img alt="Penn State home page" src="../library/sites/www.e-education.psu.edu.library/files/psu_logo.png" style="width: 135px; height: 61px;" /></a></div>
+
+	<div class="col2">
+		<p><a href="https://goo.gl/maps/9SC1XJVPTqD2">2217 Earth and Engineering Sciences Building, University Park, Pennsylvania 16802</a><br /><a href="http://www.psu.edu/contact-us">Contact Us</a></p>
+	</div>
+
+	<div class="col3">
+		<p><a href="http://www.psu.edu/web-privacy-statement">Privacy &amp; Legal Statements</a> | <a href="http://www.psu.edu/copyright-information">Copyright Information</a><br />
+			The Pennsylvania State University © 2018</p>
+	</div>
+</div>
+    </div>
+  </div>
+</div>  </div>
+</div>  </div>
+</div></footer>
+
+  </div>
+  </body>
+
+<!-- Mirrored from www.e-education.psu.edu/meteo3/l2_p6.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 08 Nov 2018 20:14:17 GMT -->
+</html>
